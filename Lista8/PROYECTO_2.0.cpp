@@ -79,12 +79,19 @@ int main()
     lista->insertFirst(30);
 
     lista->mostrar();
+
+     string i = lista->buscarRecursivo(40, lista->getFirst());
+    string x = lista->buscarRecursivo(30, lista->getFirst());
+    cout << i;
+    cout << x;
+    /* 
     lista->buscar(20);
     lista->buscar(50);
     lista->buscar(100);
     lista->buscar(-50);
     lista->buscar(10);
-    
+    */
+
     /* 
     lista->deleteFirst();
     lista->mostrar();

@@ -14,6 +14,15 @@ public:
 		first = NULL;
 		last = NULL;
 	}
+	Terna<T>* getFirst()
+	{
+		return first;
+	}
+
+	~Lista_8() {
+
+	}
+
 	void insertFirst(T v)
 	{
 		Terna <T>* aux; 
@@ -143,11 +152,30 @@ public:
 		cout << "el valor no se encuentra en la lista"<<endl;
 		}
 	}
-
-
-	~Lista_8() {
-
+	string buscarRecursivo(T v, Terna<T>* p)
+	{
+		string res;
+		if (p == NULL)
+		{
+			res = "no";
+		}
+		else
+		{
+			if (p->getValue() == v)
+			{
+				res = "si";
+			}
+			else
+			{
+				res = buscarRecursivo(v, p->getNext());
+			}
+		}
+		return res + "\n";
 	}
+	
+
+
+	
 
 };
 
