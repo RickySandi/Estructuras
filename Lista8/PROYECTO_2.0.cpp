@@ -80,13 +80,18 @@ int main()
     lista->insertFirst(30);
     lista->insertFirst(100);
     lista->insertFirst(300);
-    
 
     lista->mostrar();
 
+     //lista->deleteX(3);
+    //lista->mostrar(); 
+
+
+   lista->deleteList();
+    lista->mostrar();
+
     
-    lista->deleteX(3);
-    lista->mostrar(); 
+   
 
 
 

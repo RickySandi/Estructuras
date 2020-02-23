@@ -207,15 +207,24 @@ public:
         return;
 
 		Terna <T> *aux = actual;
-		actual = actual->setNext(); 
+		actual = actual->getNext(); 
 		actual->setPrevious(aux->getPrevious()); 
 
-		
-
-		delete aux; 
-		//actual->setNext(NULL);  
-
+		 free(aux); 
+		//actual->setNext(NULL); 
 	}
+	void deleteList()  
+	{  
+	Terna <T>* actual = first;  
+	Terna <T>* next;  
+  
+	while (actual != NULL){  
+   	 next = actual->getNext();  
+   	 free(actual);  
+     actual = next;  
+	 }  
+	first  = NULL;  
+	} 
 	
 
 
