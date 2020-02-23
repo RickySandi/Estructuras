@@ -170,12 +170,54 @@ public:
 				res = buscarRecursivo(v, p->getNext());
 			}
 		}
-		return res + "\n";
+		return res;
+	}
+	void invertir()  
+	{  
+    Terna <T> *aux = NULL;  
+    Terna <T> *actual = first;   
+      
+    /* swap next and prev for all nodes of  
+    doubly linked list */
+    	while (actual != NULL){
+
+        aux = actual->getPrevious();  
+        actual->setPrevious(actual->getNext());  
+        actual->setNext(aux);              
+        actual = actual->getPrevious();  
+    	}  
+      
+    /* Before changing the head, check for the cases like empty  
+        list and list with only one node */
+    	if(aux != NULL ){
+        first = aux->getPrevious(); 
+		} 
+	}
+	void deleteX(int n){
+		 if (first == NULL || n <= 0){ 
+        cout<<"Lista Vacia o posicion invalida"<<endl; 
+		return ;
+		}
+		Terna <T> *actual = first; 
+
+		for (int i = 0; actual != NULL && i < n; i++){ 
+        actual= actual->getNext(); 
+		}
+		if (actual == NULL) 
+        return;
+
+		Terna <T> *aux = actual;
+		actual = actual->setNext(); 
+		actual->setPrevious(aux->getPrevious()); 
+
+		
+
+		delete aux; 
+		//actual->setNext(NULL);  
+
 	}
 	
 
-
-	
 
 };
 

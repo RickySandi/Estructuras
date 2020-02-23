@@ -74,16 +74,34 @@ int main()
 {
     Lista_8 <int>* lista = new Lista_8 <int>();
 
+ 
     lista->insertFirst(10);
     lista->insertFirst(20);
     lista->insertFirst(30);
+    lista->insertFirst(100);
+    lista->insertFirst(300);
+    
 
     lista->mostrar();
 
+    
+    lista->deleteX(3);
+    lista->mostrar(); 
+
+
+
+
+/* 
      string i = lista->buscarRecursivo(40, lista->getFirst());
     string x = lista->buscarRecursivo(30, lista->getFirst());
     cout << i;
+    cout<<endl;
     cout << x;
+    cout<<endl;
+*/
+    //lista->invertir(); 
+   // lista->mostrar(); 
+
     /* 
     lista->buscar(20);
     lista->buscar(50);
