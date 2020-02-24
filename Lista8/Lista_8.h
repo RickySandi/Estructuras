@@ -110,8 +110,6 @@ public:
 		}
 	}
 
-	
-
 	void mostrar()
 	{
 		Terna <T>* aux;
@@ -172,6 +170,42 @@ public:
 		}
 		return res;
 	}
+	void insertarEnSuLugar(T v){
+		
+		Terna <T> * t = new Terna <T>();
+		t->setValue(v); 
+
+		Terna <T> *aux = first; 
+		while(aux->getValue() < t->getValue()){
+			aux = aux->getNext(); 
+		} 
+		Terna <T> *ant = aux->getPrevious();
+
+		ant->setNext(t);
+		aux->setPrevious(t);
+		//t->setNext(t->getPrevious()->getNext());
+
+		
+	}
+	
+	void eliminarElemento(T v){
+		
+	    Terna<T>* t = new Terna <T>();
+		t->setValue(v); 
+
+		Terna <T>* aux = first;  
+		while(aux->getValue() != v){
+			aux = aux->getNext(); 
+		}
+		Terna <T>* ant = aux->getPrevious();
+		Terna <T>* sig = aux->getNext();
+
+		if(ant != NULL){ ant->setNext(sig); } 
+		if(sig != NULL){ sig->setPrevious(ant); } 
+
+		//delete aux; 
+		
+	}
 	void invertir()  
 	{  
   	  Terna <T> *aux = NULL;  
@@ -189,24 +223,7 @@ public:
         first = aux->getPrevious(); 
 		} 
 	}
-	void deleteX(T v){
-	    Terna<T>* t = new Terna <T>();
-		t->setValue(v); 
-
-		Terna <T>* aux = first;  
-		while(aux->getValue() != v){
-			aux = aux->getNext(); 
-		}
-		Terna <T>* ant = aux->getPrevious();
-		Terna <T>* sig = aux->getNext();
-
-		if(ant != NULL){ ant->setNext(sig); } 
-		if(sig != NULL){ sig->setPrevious(ant); } 
-
-		//delete aux; 
-		
-	}
-	T searchPos(int pos){
+	T buscarIPos(int pos){
 
 		Terna <T>* aux = first;  
 		while(pos > 0){

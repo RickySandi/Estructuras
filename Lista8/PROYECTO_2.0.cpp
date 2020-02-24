@@ -75,23 +75,30 @@ int main()
     Lista_8 <int>* lista = new Lista_8 <int>();
 
  
+    lista->insertFirst(1);
+    lista->insertFirst(5);
+    lista->insertFirst(7);
     lista->insertFirst(10);
-    lista->insertFirst(20);
-    lista->insertFirst(30);
-    lista->insertFirst(100);
-    lista->insertFirst(300);
+    
 
+    lista->invertir(); 
     lista->mostrar();
 
-    //lista->mostrar(); 
+    lista->eliminarElemento(2); 
+    lista->mostrar();
+
+    //lista->insertarEnSuLugar(9);
+   // lista->mostrar(); 
 
 
   // lista->deleteList();
     //lista->mostrar();
-    int val1 = lista->searchPos(-2);
+    /* 
+    int val1 = lista->searchPos(2);
     cout<<val1<<endl; 
     int val2 =lista->searchPos(4);
     cout<<val2<<endl; 
+    */
 
     
    
