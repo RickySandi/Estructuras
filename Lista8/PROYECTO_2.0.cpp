@@ -75,20 +75,20 @@ int main()
     Lista_8 <int>* lista = new Lista_8 <int>();
 
  
-    lista->insertFirst(1);
-    lista->insertFirst(5);
-    lista->insertFirst(7);
-    lista->insertFirst(10);
+    lista->insertFirst(19);
+    lista->insertFirst(34);
+    lista->insertFirst(56);
+    lista->insertFirst(100);
     
 
     lista->invertir(); 
     lista->mostrar();
 
-    lista->eliminarElemento(2); 
-    lista->mostrar();
+   // lista->eliminarElemento(2); 
+   // lista->mostrar();
 
-    //lista->insertarEnSuLugar(9);
-   // lista->mostrar(); 
+    lista->insertarEnSuLugar(48);
+    lista->mostrar(); 
 
 
   // lista->deleteList();

@@ -170,12 +170,13 @@ public:
 		}
 		return res;
 	}
+	
 	void insertarEnSuLugar(T v){
 		
 		Terna <T> * t = new Terna <T>();
 		t->setValue(v); 
 
-		Terna <T> *aux = first; 
+		Terna <T> *aux = first;
 		while(aux->getValue() < t->getValue()){
 			aux = aux->getNext(); 
 		} 
@@ -183,9 +184,7 @@ public:
 
 		ant->setNext(t);
 		aux->setPrevious(t);
-		//t->setNext(t->getPrevious()->getNext());
-
-		
+		t->setNext(aux);
 	}
 	
 	void eliminarElemento(T v){
