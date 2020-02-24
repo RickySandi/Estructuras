@@ -174,11 +174,9 @@ public:
 	}
 	void invertir()  
 	{  
-    Terna <T> *aux = NULL;  
-    Terna <T> *actual = first;   
+  	  Terna <T> *aux = NULL;  
+      Terna <T> *actual = first;   
       
-    /* swap next and prev for all nodes of  
-    doubly linked list */
     	while (actual != NULL){
 
         aux = actual->getPrevious();  
@@ -187,32 +185,40 @@ public:
         actual = actual->getPrevious();  
     	}  
       
-    /* Before changing the head, check for the cases like empty  
-        list and list with only one node */
     	if(aux != NULL ){
         first = aux->getPrevious(); 
 		} 
 	}
-	void deleteX(int n){
-		 if (first == NULL || n <= 0){ 
-        cout<<"Lista Vacia o posicion invalida"<<endl; 
-		return ;
+	void deleteX(T v){
+	    Terna<T>* t = new Terna <T>();
+		t->setValue(v); 
+
+		Terna <T>* aux = first;  
+		while(aux->getValue() != v){
+			aux = aux->getNext(); 
 		}
-		Terna <T> *actual = first; 
+		Terna <T>* ant = aux->getPrevious();
+		Terna <T>* sig = aux->getNext();
 
-		for (int i = 0; actual != NULL && i < n; i++){ 
-        actual= actual->getNext(); 
-		}
-		if (actual == NULL) 
-        return;
+		if(ant != NULL){ ant->setNext(sig); } 
+		if(sig != NULL){ sig->setPrevious(ant); } 
 
-		Terna <T> *aux = actual;
-		actual = actual->getNext(); 
-		actual->setPrevious(aux->getPrevious()); 
-
-		 free(aux); 
-		//actual->setNext(NULL); 
+		//delete aux; 
+		
 	}
+	T searchPos(int pos){
+
+		Terna <T>* aux = first;  
+		while(pos > 0){
+			aux = aux->getNext();
+			pos--; 
+			
+		}
+		if(pos < 0){aux = NULL;}
+		return aux->getValue(); 
+	}
+
+
 	void deleteList()  
 	{  
 	Terna <T>* actual = first;  

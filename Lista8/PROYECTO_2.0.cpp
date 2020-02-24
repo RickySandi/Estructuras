@@ -83,12 +83,15 @@ int main()
 
     lista->mostrar();
 
-     //lista->deleteX(3);
     //lista->mostrar(); 
 
 
-   lista->deleteList();
-    lista->mostrar();
+  // lista->deleteList();
+    //lista->mostrar();
+    int val1 = lista->searchPos(-2);
+    cout<<val1<<endl; 
+    int val2 =lista->searchPos(4);
+    cout<<val2<<endl; 
 
     
    
