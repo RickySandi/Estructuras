@@ -10,6 +10,7 @@ void mostrarMenu(){
 
    int op;
    int v;
+   Terna <int>* p = lista->getFirst(); 
    do{
     cout<<"-----MENU-----"<<endl;
     cout<<"1.Insertar al principio"<<endl;
@@ -48,7 +49,7 @@ void mostrarMenu(){
          lista->deleteFirst();
         break;
     case 4 :
-         //lista->eraseBack();
+         lista->deleteBack();
         break;
     case 5 :
          lista->mostrar();
@@ -57,13 +58,34 @@ void mostrarMenu(){
     
         cout<<"Ingresa un valor a buscar"<<endl; 
         cin>>v;
-        //lista->buscar(v);
+        lista->buscar(v);
         break;
     case 7 :
-       // lista->invertirLista(); 
+        
+        cout<<"Ingresa un valor a buscar"<<endl; 
+        cin>>v;
+        lista->buscarRecursivo(v, p); 
         break; 
     case 8: 
+        cout<<"Ingresa un valor"<<endl; 
+        cin>>v;
+        lista->insertarEnSuLugar(v);
         break;
+    case 9: 
+        cout<<"Ingresa un valor a eliminar"<<endl; 
+        cin>>v;
+        lista->eliminarElemento(v);
+        break;
+    case 10: 
+        lista->invertir();
+        break;
+    case 11: 
+        cout<<"Ingresa la posicion a buscar"<<endl; 
+        cin>>v;
+        lista->buscarIPos(v);
+        break;
+    case 12:
+        lista->deleteList();
     default:
         break;
     }
@@ -72,23 +94,49 @@ void mostrarMenu(){
         
 int main()
 {
+   // mostrarMenu(); 
     Lista_8 <int>* lista = new Lista_8 <int>();
 
- 
-    lista->insertFirst(19);
+
+     lista->insertFirst(19);
     lista->insertFirst(34);
     lista->insertFirst(56);
     lista->insertFirst(100);
     
-
     lista->invertir(); 
     lista->mostrar();
 
-   // lista->eliminarElemento(2); 
-   // lista->mostrar();
+  /* 
+   lista->eliminarElemento(34); 
+     lista->mostrar();
+   lista->eliminarElemento(56);
+     lista->mostrar();
+   lista->eliminarElemento(19);
+     lista->mostrar();
+    lista->eliminarElemento(100); 
+   lista->mostrar();
+   */
+  
+    //lista->insertarEnSuLugar(10);
+    lista->insertarEnSuLugar(58);
+    //lista->insertarEnSuLugar(93);
+    lista->mostrar();
+    lista->eliminarElemento(19);
+    lista->eliminarElemento(100);
+    lista->mostrar();
+    lista->eliminarElemento(10);
+    lista->mostrar();
 
-    lista->insertarEnSuLugar(48);
+    //  lista->insertarEnSuLugar(-8);
+  //  lista->insertarEnSuLugar(-2);
+   // lista->mostrar(); 
+
+   /* 
+    lista->insertarEnSuLugar(1);
     lista->mostrar(); 
+    lista->insertarEnSuLugar(200);
+    lista->mostrar(); 
+    */
 
 
   // lista->deleteList();
@@ -99,12 +147,6 @@ int main()
     int val2 =lista->searchPos(4);
     cout<<val2<<endl; 
     */
-
-    
-   
-
-
-
 
 /* 
      string i = lista->buscarRecursivo(40, lista->getFirst());

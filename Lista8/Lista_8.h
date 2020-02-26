@@ -176,52 +176,90 @@ public:
 		Terna <T> * t = new Terna <T>();
 		t->setValue(v); 
 
+
+		if(t->getValue() <= first->getValue()){
+			insertFirst(v);
+		}
+
+		else if( t->getValue() >= last->getValue()){
+			insertBack(v);
+		}
+		
+		else {
+
 		Terna <T> *aux = first;
+
 		while(aux->getValue() < t->getValue()){
 			aux = aux->getNext(); 
-		} 
+		 } 
+
+	
 		Terna <T> *ant = aux->getPrevious();
 
 		ant->setNext(t);
 		aux->setPrevious(t);
 		t->setNext(aux);
+		}
+
+		
 	}
+		
+	
 	
 	void eliminarElemento(T v){
 		
 	    Terna<T>* t = new Terna <T>();
 		t->setValue(v); 
-
-		Terna <T>* aux = first;  
-		while(aux->getValue() != v){
-			aux = aux->getNext(); 
+		if (first == NULL){
+			cout << "Lista Vacia";
+			return ; 
 		}
-		Terna <T>* ant = aux->getPrevious();
-		Terna <T>* sig = aux->getNext();
 
-		if(ant != NULL){ ant->setNext(sig); } 
-		if(sig != NULL){ sig->setPrevious(ant); } 
-
-		//delete aux; 
+		else if (v == last->getValue()){
+			deleteBack();
+		}
 		
-	}
-	void invertir()  
-	{  
-  	  Terna <T> *aux = NULL;  
-      Terna <T> *actual = first;   
-      
-    	while (actual != NULL){
+		else if (v == first->getValue()){
+				deleteFirst();
+		}
+		else{
+			Terna <T>* aux = first;  
 
+				while(aux && aux->getValue() != v){
+				aux = aux->getNext(); 
+				}
+
+			if (aux) {
+
+			Terna <T>* ant = aux->getPrevious();
+			Terna <T>* sig = aux->getNext();
+
+			if(ant != NULL){ ant->setNext(sig); } 
+			if(sig != NULL){ sig->setPrevious(ant); } 
+		
+					}
+}
+
+	}
+	void invertir()  {  
+
+  	  Terna <T> *aux = NULL;  
+      Terna <T> *actual = first; 
+
+
+    
+    	while (actual != NULL){
         aux = actual->getPrevious();  
         actual->setPrevious(actual->getNext());  
         actual->setNext(aux);              
         actual = actual->getPrevious();  
     	}  
-      
-    	if(aux != NULL ){
-        first = aux->getPrevious(); 
-		} 
+
+		swap(first, last);
+
+
 	}
+
 	T buscarIPos(int pos){
 
 		Terna <T>* aux = first;  
