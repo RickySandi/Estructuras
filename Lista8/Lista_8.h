@@ -277,7 +277,11 @@ public:
 		
 		Lista_8 <int>* lista3 = new Lista_8 <int>();
 
-		if(first == NULL && primeroLista2 != NULL){ // lista1 vacia y lista2 no
+		if(first == NULL && primeroLista2 == NULL){
+			return lista3;
+		}
+
+		else if(first == NULL && primeroLista2 != NULL){ // lista1 vacia y lista2 no
 
 			while(primeroLista2->getNext() != NULL){
 				lista3->insertBack(primeroLista2->getValue());
@@ -294,9 +298,20 @@ public:
 			lista3->insertBack(last->getValue());
 		}
 		else{
-			while(first->getNext() != NULL){
-				
+			while(first->getNext() != NULL && primeroLista2->getNext() != NULL){
+
+				 if(first->getValue() <= primeroLista2->getValue()){
+
+					 lista3->insertBack(first->getValue());
+						first = first->getNext();
+				 }
+				 else{
+					 lista3->insertBack(primeroLista2->getValue());
+					 primeroLista2 = primeroLista2->getNext(); 
+				 }
+				// first = first->getNext(); 
 			}
+			//if(last->getValue() <= )
 		}
 		
 	

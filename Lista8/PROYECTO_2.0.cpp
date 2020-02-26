@@ -109,7 +109,10 @@ int main()
     lista2->insertFirst(34);
     lista2->insertFirst(19);
 
-   // lista->insertBack(200);
+    lista->insertFirst(200);
+    lista->insertFirst(150);
+     lista->insertFirst(20);
+    lista->insertFirst(10);
 
    // lista2->insertFirst(20); 
 
