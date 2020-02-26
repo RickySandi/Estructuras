@@ -153,18 +153,15 @@ public:
 	string buscarRecursivo(T v, Terna<T>* p)
 	{
 		string res;
-		if (p == NULL)
-		{
+		if (p == NULL){
 			res = "no";
 		}
 		else
 		{
-			if (p->getValue() == v)
-			{
+			if (p->getValue() == v){
 				res = "si";
 			}
-			else
-			{
+			else{
 				res = buscarRecursivo(v, p->getNext());
 			}
 		}
@@ -193,19 +190,15 @@ public:
 			aux = aux->getNext(); 
 		 } 
 
-	
 		Terna <T> *ant = aux->getPrevious();
 
 		ant->setNext(t);
 		aux->setPrevious(t);
 		t->setNext(aux);
 		}
-
 		
 	}
 		
-	
-	
 	void eliminarElemento(T v){
 		
 	    Terna<T>* t = new Terna <T>();
@@ -236,17 +229,14 @@ public:
 
 			if(ant != NULL){ ant->setNext(sig); } 
 			if(sig != NULL){ sig->setPrevious(ant); } 
-		
-					}
-}
-
+			}	
+		}
 	}
+
 	void invertir()  {  
 
   	  Terna <T> *aux = NULL;  
       Terna <T> *actual = first; 
-
-
     
     	while (actual != NULL){
         aux = actual->getPrevious();  
@@ -257,7 +247,6 @@ public:
 
 		swap(first, last);
 
-
 	}
 
 	T buscarIPos(int pos){
@@ -265,16 +254,15 @@ public:
 		Terna <T>* aux = first;  
 		while(pos > 0){
 			aux = aux->getNext();
-			pos--; 
-			
+			pos--; 	
 		}
 		if(pos < 0){aux = NULL;}
 		return aux->getValue(); 
 	}
 
 
-	void deleteList()  
-	{  
+	void deleteList(){
+
 	Terna <T>* actual = first;  
 	Terna <T>* next;  
   
@@ -282,11 +270,40 @@ public:
    	 next = actual->getNext();  
    	 free(actual);  
      actual = next;  
-	 }  
+	}  
 	first  = NULL;  
-	} 
-	
+ } 
+	Lista_8 <T>* fusionarListas(Terna<T>* primeroLista2){
+		
+		Lista_8 <int>* lista3 = new Lista_8 <int>();
 
+		if(first == NULL && primeroLista2 != NULL){ // lista1 vacia y lista2 no
+
+			while(primeroLista2->getNext() != NULL){
+				lista3->insertBack(primeroLista2->getValue());
+				primeroLista2 = primeroLista2->getNext(); 
+			}
+			lista3->insertBack(primeroLista2->getValue());
+		}
+		else if(primeroLista2 == NULL && first != NULL){ // lista2 vacia y lista1 no
+			
+			while(first->getNext() != NULL){
+				lista3->insertBack(first->getValue());
+				first = first->getNext(); 
+			}
+			lista3->insertBack(last->getValue());
+		}
+		else{
+			while(first->getNext() != NULL){
+				
+			}
+		}
+		
+	
+	
+		return lista3;
+	}
+	
 
 };
 

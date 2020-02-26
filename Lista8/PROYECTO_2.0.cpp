@@ -25,7 +25,8 @@ void mostrarMenu(){
     cout<<"10.Invertir"<<endl;
     cout<<"11.Buscar elemento"<<endl;
     cout<<"12.Eliminar toda la lista"<<endl;
-    cout<<"13.Salir"<<endl;
+    cout<<"13.Fusionar dos listas"<<endl;
+    cout<<"14.Salir"<<endl;
     cout<<endl;
     cout<<"Ingresa una opcion"<<endl; 
     cin>>op; 
@@ -86,6 +87,8 @@ void mostrarMenu(){
         break;
     case 12:
         lista->deleteList();
+     case 13:
+        lista->deleteList();
     default:
         break;
     }
@@ -96,15 +99,36 @@ int main()
 {
    // mostrarMenu(); 
     Lista_8 <int>* lista = new Lista_8 <int>();
+    Lista_8 <int>* lista2 = new Lista_8 <int>();
+    Lista_8 <int>* lista3 = new Lista_8 <int>();
 
 
-     lista->insertFirst(19);
-    lista->insertFirst(34);
-    lista->insertFirst(56);
-    lista->insertFirst(100);
+
+     lista2->insertFirst(100);
+    lista2->insertFirst(56);
+    lista2->insertFirst(34);
+    lista2->insertFirst(19);
+
+   // lista->insertBack(200);
+
+   // lista2->insertFirst(20); 
+
     
-    lista->invertir(); 
-    lista->mostrar();
+    Terna <int>* primeroLista = lista->getFirst(); 
+    Terna <int>* primeroLista2 = lista2->getFirst();
+
+    //cout<<"primero 1 "<<primeroLista->getValue()<<endl;
+    //cout<<"primero 2 "<<primeroLista2->getValue()<<endl;
+
+    lista2->mostrar();
+
+   // cout<<"Lista 2"<<endl;
+    //lista2->mostrar();
+
+    lista3 = lista->fusionarListas(primeroLista2);
+    lista3->mostrar(); 
+
+    
 
   /* 
    lista->eliminarElemento(34); 
@@ -118,14 +142,16 @@ int main()
    */
   
     //lista->insertarEnSuLugar(10);
-    lista->insertarEnSuLugar(58);
+    //lista->insertarEnSuLugar(58);
     //lista->insertarEnSuLugar(93);
+    /*
     lista->mostrar();
     lista->eliminarElemento(19);
     lista->eliminarElemento(100);
     lista->mostrar();
     lista->eliminarElemento(10);
     lista->mostrar();
+    */
 
     //  lista->insertarEnSuLugar(-8);
   //  lista->insertarEnSuLugar(-2);
@@ -147,7 +173,7 @@ int main()
     int val2 =lista->searchPos(4);
     cout<<val2<<endl; 
     */
-
+   
 /* 
      string i = lista->buscarRecursivo(40, lista->getFirst());
     string x = lista->buscarRecursivo(30, lista->getFirst());
@@ -180,4 +206,4 @@ int main()
     lista->deleteBack(); 
     lista->mostrar(); 
    */
-}
+};
