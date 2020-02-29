@@ -23,9 +23,9 @@ void mostrarMenu(){
     cout<<"8.Insertar en su lugar"<<endl;
     cout<<"9.Eliminar elemento dado"<<endl;
     cout<<"10.Invertir"<<endl;
-    cout<<"11.Buscar elemento"<<endl;
+    cout<<"11.Buscar elemento en la i posicion"<<endl;
     cout<<"12.Eliminar toda la lista"<<endl;
-    cout<<"13.Fusionar dos listas"<<endl;
+   // cout<<"13.Fusionar dos listas"<<endl;
     cout<<"14.Salir"<<endl;
     cout<<endl;
     cout<<"Ingresa una opcion"<<endl; 
@@ -34,6 +34,7 @@ void mostrarMenu(){
      
     switch (op)
     {
+    
     case 1 :
         //int v; 
         cout<<"Ingresa un valor"<<endl; 
@@ -88,21 +89,20 @@ void mostrarMenu(){
     case 12:
         lista->deleteList();
      case 13:
-        lista->deleteList();
+       // lista->deleteList();
     default:
         break;
     }
-        }while (op!=13);
+        }while (op!=14);
     }
         
 int main()
 {
    // mostrarMenu(); 
+  
     Lista_8 <int>* lista = new Lista_8 <int>();
     Lista_8 <int>* lista2 = new Lista_8 <int>();
     Lista_8 <int>* lista3 = new Lista_8 <int>();
-
-
 
      lista2->insertFirst(100);
     lista2->insertFirst(56);
@@ -114,22 +114,18 @@ int main()
      lista->insertFirst(20);
     lista->insertFirst(10);
 
-   // lista2->insertFirst(20); 
-
     
     Terna <int>* primeroLista = lista->getFirst(); 
     Terna <int>* primeroLista2 = lista2->getFirst();
 
-    //cout<<"primero 1 "<<primeroLista->getValue()<<endl;
-    //cout<<"primero 2 "<<primeroLista2->getValue()<<endl;
-
-    lista2->mostrar();
-
-   // cout<<"Lista 2"<<endl;
     //lista2->mostrar();
+
 
     lista3 = lista->fusionarListas(primeroLista2);
     lista3->mostrar(); 
+
+    lista->mostrar();
+    lista2->mostrar();
 
     
 

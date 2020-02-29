@@ -272,53 +272,40 @@ public:
      actual = next;  
 	}  
 	first  = NULL;  
- } 
-	Lista_8 <T>* fusionarListas(Terna<T>* primeroLista2){
+} 
+
+Lista_8 <T>* fusionarListas(Terna<T>* primeroLista2){
 		
 		Lista_8 <int>* lista3 = new Lista_8 <int>();
+		Terna<T>* a = first;
+		Terna<T>* b = primeroLista2;  
 
-		if(first == NULL && primeroLista2 == NULL){
-			return lista3;
-		}
+		while(a != NULL || b != NULL){
 
-		else if(first == NULL && primeroLista2 != NULL){ // lista1 vacia y lista2 no
+			if(a && b){
 
-			while(primeroLista2->getNext() != NULL){
-				lista3->insertBack(primeroLista2->getValue());
-				primeroLista2 = primeroLista2->getNext(); 
+				if(a->getValue() < b->getValue()){
+					
+					lista3->insertBack(a->getValue());
+					a = a->getNext(); 
+				}
+				else {
+					lista3->insertBack(b->getValue());
+					b = b->getNext(); 
+				}
 			}
-			lista3->insertBack(primeroLista2->getValue());
-		}
-		else if(primeroLista2 == NULL && first != NULL){ // lista2 vacia y lista1 no
-			
-			while(first->getNext() != NULL){
-				lista3->insertBack(first->getValue());
-				first = first->getNext(); 
+			else{
+				if(a){
+					lista3->insertBack(a->getValue());
+					a = a->getNext(); 
+				}
+				else{
+					lista3->insertBack(b->getValue());
+					b = b->getNext(); 
+				}
 			}
-			lista3->insertBack(last->getValue());
 		}
-		else{
-			while(first->getNext() != NULL && primeroLista2->getNext() != NULL){
-
-				 if(first->getValue() <= primeroLista2->getValue()){
-
-					 lista3->insertBack(first->getValue());
-						first = first->getNext();
-				 }
-				 else{
-					 lista3->insertBack(primeroLista2->getValue());
-					 primeroLista2 = primeroLista2->getNext(); 
-				 }
-				// first = first->getNext(); 
-			}
-			//if(last->getValue() <= )
-		}
-		
-	
-	
-		return lista3;
+		return lista3;			
 	}
-	
-
 };
 
