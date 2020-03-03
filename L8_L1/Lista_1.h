@@ -29,9 +29,15 @@ public:
 
 			estudiantes[TAM-1-size] = nomEstudiante; 
 			size++;
-		}
-		
+		}	
 	}
+
+	void eliminarFinal(){
+		
+			estudiantes[size] = ""; 
+			size--;
+	}	
+	
 	void mostrarArray(){
 
 		for(int i = TAM -1; i >= TAM - size;i--){

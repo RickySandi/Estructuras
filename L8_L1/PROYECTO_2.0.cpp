@@ -113,6 +113,9 @@ int main()
     listaEstudiantes->insertarFinal("Estudiante 2");
     listaEstudiantes->insertarFinal("Estudiante 3");
     listaEstudiantes->mostrarArray(); 
+    listaEstudiantes->eliminarFinal();
+    listaEstudiantes->mostrarArray(); 
+    
     
    
 };
