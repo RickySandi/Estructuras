@@ -114,8 +114,14 @@ int main()
     listaEstudiantes->insertarFinal("Estudiante 3");
     listaEstudiantes->mostrarArray(); 
     listaEstudiantes->eliminarFinal();
+    cout<<endl; 
     listaEstudiantes->mostrarArray(); 
-    
+    listaEstudiantes->buscar("Estudiante 1"); 
+    listaEstudiantes->buscar("Estudiante 100"); 
+    listaEstudiantes->buscar("Estudiante 2"); 
+    listaEstudiantes->buscar("Estudiante 200"); 
+    listaEstudiantes->buscar("Estudiante 3");
+    listaEstudiantes->buscar("Estudiante 300");
     
    
 };

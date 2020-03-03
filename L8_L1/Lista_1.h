@@ -37,6 +37,23 @@ public:
 			estudiantes[size] = ""; 
 			size--;
 	}	
+
+	void buscar(string nomEstudiante){ // convertir a bool 
+
+		string res = "Estudiante no encontrado";
+		//bool res = false; 
+		for(int i= TAM-1 ; i >=size; i--){
+			if(estudiantes[i] == nomEstudiante){
+				res = "Estudiante encontrado";
+				//return true; 
+				
+			}
+		}
+		cout<<res<<endl; 
+		//return res;
+		
+
+	}
 	
 	void mostrarArray(){
 
