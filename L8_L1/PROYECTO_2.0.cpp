@@ -106,7 +106,7 @@ int main()
     Lista_1 *  listaEstudiantes = new Lista_1  ();
 
     cuarteto_1->setValue("Dieter Montanio"); // Docente 
-    listaListas->insertFirst(cuarteto_1->getValue()); 
+    listaListas->insertBack(cuarteto_1->getValue()); 
     listaListas->mostrar(); 
 
     listaEstudiantes->insertarFinal("Estudiante 1"); 
@@ -122,6 +122,10 @@ int main()
     listaEstudiantes->buscar("Estudiante 200"); 
     listaEstudiantes->buscar("Estudiante 3");
     listaEstudiantes->buscar("Estudiante 300");
+
+    listaListas->deleteBack();
+    listaListas->mostrar(); 
+
     
    
 };
