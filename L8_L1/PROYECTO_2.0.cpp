@@ -66,7 +66,7 @@ void mostrarMenu(){
         
         cout<<"Ingresa un valor a buscar"<<endl; 
         cin>>v;
-        lista->buscarRecursivo(v, p); 
+        lista->buscarDocenteRecursivo(v, p); 
         break; 
     case 8: 
         cout<<"Ingresa un valor"<<endl; 
@@ -115,16 +115,27 @@ int main()
     listaEstudiantes->mostrarArray(); 
     listaEstudiantes->eliminarFinal();
     cout<<endl; 
-    listaEstudiantes->mostrarArray(); 
-    listaEstudiantes->buscar("Estudiante 1"); 
-    listaEstudiantes->buscar("Estudiante 100"); 
-    listaEstudiantes->buscar("Estudiante 2"); 
-    listaEstudiantes->buscar("Estudiante 200"); 
-    listaEstudiantes->buscar("Estudiante 3");
-    listaEstudiantes->buscar("Estudiante 300");
 
-    listaListas->deleteBack();
+    listaEstudiantes->mostrarArray(); 
+    cout<<listaEstudiantes->buscar("Estudiante 1"); 
+    cout<<listaEstudiantes->buscar("Estudiante 100"); 
+    cout<<listaEstudiantes->buscar("Estudiante 2"); 
+    cout<<listaEstudiantes->buscar("Estudiante 200"); 
+    cout<<listaEstudiantes->buscar("Estudiante 3");
+    cout<<listaEstudiantes->buscar("Estudiante 300");
+
+   // listaListas->deleteBack();
     listaListas->mostrar(); 
+
+     Cuarteto <string>* primero = listaListas->getFirst(); 
+
+     string buscarDocente = listaListas->buscarDocenteRecursivo("Dieter Montanio", primero); // buscar docentes
+    cout<<buscarDocente<<endl;
+
+   
+
+     string buscarEstudiante = listaListas->buscarEstudianteRecursivo("Estudiante 1000", primero); // buscar estudiantes
+     cout<<buscarEstudiante<<endl;
 
     
    

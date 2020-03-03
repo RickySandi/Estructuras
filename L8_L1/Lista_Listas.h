@@ -152,7 +152,7 @@ public:
 		cout << "el valor no se encuentra en la lista"<<endl;
 		}
 	}
-	string buscarRecursivo(T v, Cuarteto<T>* p)
+	string buscarDocenteRecursivo(T v, Cuarteto<T>* p)
 	{
 		string res;
 		if (p == NULL){
@@ -164,7 +164,31 @@ public:
 				res = "si";
 			}
 			else{
-				res = buscarRecursivo(v, p->getNext());
+				res = buscarDocenteRecursivo(v, p->getNext());
+			}
+		}
+		return res;
+	}
+
+	string buscarEstudianteRecursivo(T v, Cuarteto<T>* p)
+	{
+		cout<<"Entra a buscar estudiante"<<endl;
+		string res;
+		bool found; 
+		if (p == NULL){
+			res = "Estudiante no encontrado";
+		}
+		else
+		{
+			//cout<<"Entra al else"<<endl;
+			found = p->getLista()->buscar(v);
+			//cout<<"sigue"<<endl;
+			if(found){
+				res = "Estudiante encontrado";
+			} 
+			
+			else{
+				res = buscarEstudianteRecursivo(v, p->getNext());
 			}
 		}
 		return res;
