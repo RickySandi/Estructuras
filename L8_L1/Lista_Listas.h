@@ -120,8 +120,10 @@ public:
 		}
 		while (aux != NULL)
 		{
-			cout << aux->getValue() << " ";
+			cout << aux->getValue() << " "; //Docente 
+		//	aux->getLista()->mostrarArray(); // Estudiantes
 			aux = aux->getNext();
+			 
 		}
 		cout << endl;
 	}

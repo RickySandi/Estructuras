@@ -100,7 +100,19 @@ int main()
 {
    // mostrarMenu(); 
   
-    Lista_Listas  <int>* lista = new Lista_Listas <int>();
+    Lista_Listas  <string>* listaListas = new Lista_Listas <string>();
+    Cuarteto <string>* cuarteto_1 = new Cuarteto <string>(); // Docentes
+
+    Lista_1 *  listaEstudiantes = new Lista_1  ();
+
+    cuarteto_1->setValue("Dieter Montanio"); // Docente 
+    listaListas->insertFirst(cuarteto_1->getValue()); 
+    listaListas->mostrar(); 
+
+    listaEstudiantes->insertarFinal("Estudiante 1"); 
+    listaEstudiantes->insertarFinal("Estudiante 2");
+    listaEstudiantes->insertarFinal("Estudiante 3");
+    listaEstudiantes->mostrarArray(); 
     
    
 };

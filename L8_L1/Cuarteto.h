@@ -12,7 +12,7 @@ private:
 	//T value;
 	Cuarteto* next;
 	Cuarteto* previous;
-	string criterio; 
+	T criterio; 
 	Lista_1 * lista;
 
 
@@ -36,12 +36,12 @@ public:
 
 	T getValue() 
 	{
-		return value;
+		return criterio;
 	}
 
 	void setValue(T v) 
 	{
-		value = v;
+		criterio = v;
 	}
 
 	void setNext(Cuarteto<T>* t) 
@@ -53,6 +53,11 @@ public:
 	{
 		previous = t;
 	}
+
+	Lista_1 * getLista(){
+		return lista;
+	}
+
 
 	~Cuarteto()
 	{

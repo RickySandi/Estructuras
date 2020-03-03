@@ -17,20 +17,24 @@ private:
 public:
 	Lista_1() {
 	
-	int size = 0;
+	 size = 0;
 	}
 
 	~Lista_1() {
 
 	}
 	void insertarFinal(string nomEstudiante){
-		while(TAM > 0 ){
-			estudiantes[TAM-size-1] = nomEstudiante; 
+		
+		if(size < TAM){
+
+			estudiantes[TAM-1-size] = nomEstudiante; 
 			size++;
 		}
+		
 	}
-	void mostrar(){
-		for(int i = size; i<TAM;i++){
+	void mostrarArray(){
+
+		for(int i = TAM -1; i >= TAM - size;i--){
 			cout<<estudiantes[i]<<endl; 
 		}
 	}
