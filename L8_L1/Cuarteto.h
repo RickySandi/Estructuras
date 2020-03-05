@@ -7,63 +7,60 @@ template <class T>
 
 class Cuarteto
 {
-private:
+	private:
+		Cuarteto* next;
+		Cuarteto* previous;
+		T criterio;
+		Lista_1* lista;
+	public:
+		Cuarteto() {
+			next = NULL;
+			previous = NULL;
+			lista = new Lista_1();
+		}
 
-	//T value;
-	Cuarteto* next;
-	Cuarteto* previous;
-	T criterio; 
-	Lista_1 * lista;
+		Cuarteto<T>* getNext()
+		{
+			return next;
+		}
 
+		Cuarteto<T>* getPrevious()
+		{
+			return previous;
+		}
 
-public:
+		T getValue()
+		{
+			return criterio;
+		}
 
-	Cuarteto()
-	{
-		next = NULL;
-		previous = NULL;
-	}
+		void setValue(T v)
+		{
+			criterio = v;
+		}
 
-	Cuarteto<T>* getNext()
-	{
-		return next;
-	}
+		void setNext(Cuarteto<T>* t)
+		{
+			next = t;
+		}
 
-	Cuarteto<T>* getPrevious()
-	{
-		return previous;
-	}
+		void setPrevious(Cuarteto<T>* t)
+		{
+			previous = t;
+		}
 
-	T getValue() 
-	{
-		return criterio;
-	}
+		void setList(Lista_1* l) {
+			
+			lista = l;
+		}
 
-	void setValue(T v) 
-	{
-		criterio = v;
-	}
+		Lista_1* getList() {
+			return lista;
+		}
 
-	void setNext(Cuarteto<T>* t) 
-	{
-		next = t;
-	}
+		~Cuarteto()
+		{
 
-	void setPrevious(Cuarteto<T>* t)
-	{
-		previous = t;
-	}
-
-	Lista_1 * getLista(){
-		return lista;
-	}
-
-
-	~Cuarteto()
-	{
-
-	}
+		}
 };
-
-
 

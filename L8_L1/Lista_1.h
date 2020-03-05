@@ -1,71 +1,58 @@
 #pragma once
-#include "Cuarteto.h"
+#include <iostream>
+#include <string>
 using namespace std;
-
-# define TAM 40
-
-//template <class T>
- 
-
-class Lista_1 			//Vector de estudiantes
+#define TAM 40
+class Lista_1
 {
 private:
+	int size;
+	string estudiantes[TAM];
 
-	 int size;
-	 string estudiantes [TAM]; 
-	 string nomEstudiante; 
 public:
-	Lista_1() {
-	
-	 size = 0;
+	Lista_1()
+	{
+		size = 0;
 	}
 
-	~Lista_1() {
+	~Lista_1()
+	{
 
 	}
-	void insertarFinal(string nomEstudiante){
-		
-		if(size < TAM){
 
-			estudiantes[TAM-1-size] = nomEstudiante; 
+	void insertarFinal(string Es)
+	{
+		if (size < TAM){
+			estudiantes[size] = Es;
 			size++;
-		}	
+			
+		}
 	}
 
-	void eliminarFinal(){
-		
-			estudiantes[size] = ""; 
-			size--;
-	}	
+	void eliminarFinal()
+	{
+		estudiantes[size] = "";
+		size--;
+	}
 
-	bool buscar(string nomEstudiante){ // convertir a bool 
-
-	cout<<"size"<<size<<endl;
-	cout<<"TAM -1"<<TAM -1<<endl; 
-		
-		//string res = "Estudiante no encontrado";
-		bool res = false; 
-		
-		for(int i= TAM-1 ; i >=size; i--){
-			if(estudiantes[i] == nomEstudiante){
-				res = true; 
-			//	return true; 
-				
+	bool buscar(string Es)
+	{
+		bool res = false;
+		for (int i = 0; i < size; i++){
+			if (estudiantes[i] == Es){
+				res = true;
 			}
 		}
-	
 		return res;
-		
-		
 	}
-	
-	void mostrarArray(){
 
-		for(int i = TAM -1; i >= TAM - size;i--){
-			cout<<estudiantes[i]<<endl; 
+	void imprimirArray()
+	{
+		for (int i = 0; i < size; i++)
+		{
+			cout << estudiantes[i] << endl;
 		}
+	
 	}
-	
-		
-	
 };
+
