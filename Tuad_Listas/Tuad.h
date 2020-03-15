@@ -5,30 +5,38 @@
 using namespace std;
 template <class T>
 
-class Tuad{
+class Tuad {
 
 private:
-Lista_8 <T> vec[46]; 
-public: 
-Tuad(){
-    
-	
-}
-~Tuad(){
+    Lista_8 <string> vec[23];
+public:
+    Tuad()
+    {
 
-}
-void insertarTuad(T palabra){
-    cout<<"Hola"<<endl;
-    cout<<"long "<<strlen(palabra.c_str());
-    vec[palabra.c_str()].insertarEnSuLugar(palabra); 
-
-}
-void mostrar(){
-    for(int i=0;i<46;i++){
-        vec[i].mostrar(); 
     }
-}
+    void insertarTuad(T palabra)
+    {
+        vec[palabra.length()].insertFirst(palabra);
+    }
+    void mostrar() {
+        for (int i = 0; i < 23; i++) {
+            vec[i].mostrar();
+        }
+    }
+    void buscar(T palabra)
+	{
+		bool parametro = false; 
+        parametro = vec[palabra.length()].buscar(palabra); 
+        if(parametro){
+            cout<<"El valor se encuentra en la lista"<<endl;
+        } 
+        else{
+            cout<<"El valor no se encuentra en la lista"<<endl;
+        }
+	}
+    ~Tuad() {
 
+    }
 
 
 

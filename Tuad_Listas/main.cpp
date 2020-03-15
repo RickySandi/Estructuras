@@ -75,23 +75,19 @@ using namespace std;
 int main(){
     
     //cout<<"DieterPuto"<<endl; 
-   // mostrarMenu(); 
-
-    fstream archEntrada;
-    string palabra;
-    archEntrada.open("soledad.txt");
-
-    Tuad<string>* tuad = new Tuad<string>();
-    cout<<"hola"<<endl; 
-    while (!archEntrada.eof() && archEntrada >> palabra)
-    {
-        cout<<"Entra"<<endl; 
-        tuad->insertarTuad(palabra);
-        cout<<"Funciona"<<endl; 
+   // mostrarMenu();
+        fstream archEntrada;
+        string palabra;
+        archEntrada.open("soledad2.txt");
+        Tuad<string>* tuad = new Tuad<string>();
+        while (!archEntrada.eof() && archEntrada >> palabra)
+        {
+            tuad->insertarTuad(palabra);
+        }
+        archEntrada.close();
+        tuad->mostrar();
+        tuad->buscar("despues");
+        tuad->buscar("Bolivia");
+        //tuad->buscar("cien");
     }
-    archEntrada.close();
 
-
-    tuad->mostrar(); 
- 
-}

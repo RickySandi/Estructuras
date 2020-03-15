@@ -1,5 +1,6 @@
 #pragma once
 #include<iostream>
+#include<string>
 using namespace std;
 
 template <class T>
@@ -11,6 +12,7 @@ private:
 	T value;
 	Terna* next;
 	Terna* previous;
+	int tam;
 
 public:
 
@@ -18,6 +20,7 @@ public:
 	{
 		next = NULL;
 		previous = NULL;
+		tam = 0;
 	}
 
 	Terna<T>* getNext()
@@ -30,17 +33,20 @@ public:
 		return previous;
 	}
 
-	T getValue() 
+	T getValue()
 	{
 		return value;
 	}
-
-	void setValue(T v) 
+	int getTam()
+	{
+		return tam;
+	}
+	void setValue(T v)
 	{
 		value = v;
 	}
 
-	void setNext(Terna<T>* t) 
+	void setNext(Terna<T>* t)
 	{
 		next = t;
 	}
@@ -49,12 +55,12 @@ public:
 	{
 		previous = t;
 	}
-
+	void setTam(int i)
+	{
+		tam = i;
+	}
 	~Terna()
 	{
 
 	}
 };
-
-
-
