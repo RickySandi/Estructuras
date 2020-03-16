@@ -69,13 +69,17 @@ int main(){
         Tuad<string>* tuad = new Tuad<string>();
         Lista_8<string>* lista8 = new Lista_8<string>(); 
 
+        int cont = 0; 
         while (!archEntrada.eof() && archEntrada >> palabra)
         {
             //tuad->insertarTuad(palabra);
             lista8->insertarEnSuLugar(palabra); 
+            cont++; 
         }
         archEntrada.close();
+        cout<<"cont "<<cont<<endl; 
 
+          // tuad->mostrar(); 
          lista8->mostrar();
 
     clock_t t1, t2;

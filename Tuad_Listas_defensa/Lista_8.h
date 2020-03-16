@@ -73,13 +73,13 @@ public:
 			first->setValue(v);
 			last = first;
 		}
-		else if (convertToASCII(v) != convertToASCII(first->getValue())){
+		else if (v != first->getValue()){
 
-			if (convertToASCII(v) < convertToASCII(first->getValue())) {
+			if ( v < first->getValue()) {
 
 				insertFirst(v);
 			} 
-			else if (convertToASCII(v) > convertToASCII(last->getValue())){
+			else if ( v > last->getValue()){
 				insertBack(v);
 			} 
 			else {
@@ -87,7 +87,7 @@ public:
 			Terna <T>* aux;
 			aux = first;
 			
-			while (aux && convertToASCII(v) < convertToASCII(aux->getValue())) {
+			while (aux && v < aux->getValue()) {
 				aux = aux->getNext();
 			}
 		
@@ -141,6 +141,7 @@ public:
 		return found;
 	}
 	void insertarLista8(T palabra){
+
 		 vec[palabra.length()]->insertarEnSuLugar(palabra);
 	}
 
