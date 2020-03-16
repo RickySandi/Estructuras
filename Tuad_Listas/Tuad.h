@@ -10,21 +10,19 @@ class Tuad {
 private:
     Lista_8 <string> vec[23];
 public:
-    Tuad()
-    {
+    Tuad(){
 
     }
-    void insertarTuad(T palabra)
-    {
-        vec[palabra.length()].insertFirst(palabra);
+    void insertarTuad(T palabra){
+
+        vec[palabra.length()].insertarEnSuLugar(palabra);
     }
     void mostrar() {
         for (int i = 0; i < 23; i++) {
             vec[i].mostrar();
         }
     }
-    void buscar(T palabra)
-	{
+    void buscar(T palabra){
 		bool parametro = false; 
         parametro = vec[palabra.length()].buscar(palabra); 
         if(parametro){

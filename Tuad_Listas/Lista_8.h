@@ -14,8 +14,7 @@ public:
 		first = NULL;
 		last = NULL;
 	}
-	Terna<T>* getFirst()
-	{
+	Terna<T>* getFirst(){
 		return first;
 	}
 
@@ -23,11 +22,9 @@ public:
 
 	}
 
-	void insertFirst(T v)
-	{
+	void insertFirst(T v){
 		Terna <T>* aux;
-		if (first == NULL)
-		{
+		if (first == NULL){
 			first = new Terna <T>();
 			first->setValue(v);
 			first->setTam(convertToASCII(v));
@@ -35,8 +32,7 @@ public:
 		}
 		else
 		{
-			if (buscar(v) == true)
-			{
+			if (buscar(v) == true){
 
 			}
 			else
@@ -50,18 +46,15 @@ public:
 			}
 		}
 	}
-	void insertBack(T v)
-	{
+	void insertBack(T v){
 		Terna <T>* aux;
-		if (first == NULL)
-		{
+		if (first == NULL){
 			first = new Terna <T>();
 			first->setValue(v);
 			first->setTam(convertToASCII(v));
 			last = first;
 		}
-		else
-		{
+		else{
 			aux = new Terna <T>();
 			aux->setValue(v);
 			aux->setTam(convertToASCII(v));
@@ -69,115 +62,81 @@ public:
 			last->setNext(aux);
 			last = aux;
 		}
-	}
-void insertarEnSuLugar(T v){
+	}	
+
+	void insertarEnSuLugar(T v) {
 		
-		Terna <T> * t = new Terna <T>();
-		t->setValue(v); 
-
-
-		if( convertToASCII(t->getValue()) <= convertToASCII(first->getValue()) ){
-			insertFirst(v);
+		if (first == NULL){
+			first = new Terna <T>();
+			first->setValue(v);
+			last = first;
 		}
+		else if (convertToASCII(v) != convertToASCII(first->getValue())){
 
-		else if( convertToASCII(t->getValue()) >= convertToASCII(last->getValue()) ){
-			insertBack(v);
-		}
+			if (convertToASCII(v) < convertToASCII(first->getValue())) {
+
+				insertFirst(v);
+			} 
+			else if (convertToASCII(v) > convertToASCII(last->getValue())){
+				insertBack(v);
+			} 
+			else {
+
+			Terna <T>* aux;
+			aux = first;
+			
+			while (aux && convertToASCII(v) < convertToASCII(aux->getValue())) {
+				aux = aux->getNext();
+			}
 		
-		else {
 
-		Terna <T> *aux = first;
+			Terna <T>* bro = new Terna <T>();
+			bro->setValue(v);
+			bro->setNext(aux);
 
-		while(convertToASCII(aux->getValue()) < convertToASCII(t->getValue())){
-			aux = aux->getNext(); 
-		 } 
-
-		Terna <T> *ant = aux->getPrevious();
-
-		ant->setNext(t);
-		aux->setPrevious(t);
-		t->setNext(aux);
+			if (aux) {
+			aux->setPrevious(bro);
+			}
+			}
 		}
-		
-	}
-	int convertToASCII(string s)
-	{
+}
+	
+	int convertToASCII(string s){
 		int b, e = 0;
-		for (int i = 0; i < s.length(); i++)
-		{
+		for (int i = 0; i < s.length(); i++){
 			b = (int)s[i];
 			e = e + b;
-
 		}
 		return e;
 	}
-	void mostrar()
-	{
-		ordenarLista();
+
+	void mostrar(){
 		Terna <T>* aux;
 		aux = first;
-		if (aux == NULL)
-		{
+		if (aux == NULL){
 			cout << "Lista Vacia";
 		}
-		while (aux != NULL)
-		{
-			cout << aux->getValue() << " " << aux->getTam() << endl;
+		while (aux != NULL){
+			cout << aux->getValue() << " " << convertToASCII(aux->getValue()) << endl;
 			aux = aux->getNext();
 		}
 		cout << endl;
 	}
-	bool buscar(T v)
-	{
+
+	bool buscar(T v){
 		Terna <T>* aux = first;
 		bool found = false;
-		if (first == NULL)
-		{
+		if (first == NULL){
 			found = false;
 		}
-		while (aux != NULL)
-		{
-			if (v == aux->getValue())
-			{
+		while (aux != NULL){
+			if (v == aux->getValue()){
 				found = true;
 				break;
 			}
 			aux = aux->getNext();
-
 		}
 		return found;
 	}
 
-	void ordenarLista()
-	{
-		T aux;
-		T aux2;
-		Terna<T>* auxPri;
-		Terna<T>* auxSeg;
-		auxPri = first;
-		auxSeg = first;
-		if (auxPri == NULL)
-		{
-			cout << "Lista vacia" << endl;
-		}
-		else
-		{
-			while (auxPri->getNext() != NULL)
-			{
-				while (auxSeg->getNext() != NULL)
-				{
-					if (convertToASCII(auxSeg->getValue()) >= convertToASCII(auxPri->getValue()))
-					{
-						aux = auxSeg->getValue();
-						auxSeg->setValue(auxPri->getValue());
-						auxPri->setValue(aux);
-					}
-					auxSeg = auxSeg->getNext();
-				}
-				auxPri = auxPri->getNext();
-				auxSeg = first;
-			}
-		}
-
-	}
 };
