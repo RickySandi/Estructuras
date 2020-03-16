@@ -98,34 +98,34 @@ void mostrarMenu(){
         
 int main()
 {
-   // mostrarMenu(); 
+    mostrarMenu(); 
   
-    Lista_8 <int>* lista = new Lista_8 <int>();
-    Lista_8 <int>* lista2 = new Lista_8 <int>();
-    Lista_8 <int>* lista3 = new Lista_8 <int>();
+    // Lista_8 <int>* lista = new Lista_8 <int>();
+    // Lista_8 <int>* lista2 = new Lista_8 <int>();
+    // Lista_8 <int>* lista3 = new Lista_8 <int>();
 
-     lista2->insertFirst(100);
-    lista2->insertFirst(56);
-    lista2->insertFirst(34);
-    lista2->insertFirst(19);
+    //  lista2->insertFirst(100);
+    // lista2->insertFirst(56);
+    // lista2->insertFirst(34);
+    // lista2->insertFirst(19);
 
-    lista->insertFirst(200);
-    lista->insertFirst(150);
-     lista->insertFirst(20);
-    lista->insertFirst(10);
+    // lista->insertFirst(200);
+    // lista->insertFirst(150);
+    //  lista->insertFirst(20);
+    // lista->insertFirst(10);
 
     
-    Terna <int>* primeroLista = lista->getFirst(); 
-    Terna <int>* primeroLista2 = lista2->getFirst();
+    // Terna <int>* primeroLista = lista->getFirst(); 
+    // Terna <int>* primeroLista2 = lista2->getFirst();
 
-    //lista2->mostrar();
+    // //lista2->mostrar();
 
 
-    lista3 = lista->fusionarListas(primeroLista2);
-    lista3->mostrar(); 
+    // lista3 = lista->fusionarListas(primeroLista2);
+    // lista3->mostrar(); 
 
-    lista->mostrar();
-    lista2->mostrar();
+    // lista->mostrar();
+    // lista2->mostrar();
 
     
 
