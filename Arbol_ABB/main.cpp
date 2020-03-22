@@ -15,6 +15,10 @@ int main(){
     abb->insertar(12);
     abb->insertar(20);
     
-     abb->mostrarINorder(1); 
+    abb->mostrarInOrder();
+    cout<<endl;
+    abb->mostrarPreOrder();
+    cout<<endl;
+    abb->mostrarPostOrder(); 
   
 }

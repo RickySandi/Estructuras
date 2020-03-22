@@ -54,12 +54,28 @@ void insertar(T elemento, int raiz = 1){ //Testear
     //     cout << vec[i]->getElem() << endl;
     // }
 }
-void mostrarINorder(int raiz){
+void mostrarInOrder(int raiz = 1){
     //cout<<"entra"<< raiz<< "-" <<vec[raiz]->getElem() <<endl; 
     if(vec[raiz]->getExisteNodo()){
-        mostrarINorder(raiz*2); //izquierda
+        mostrarInOrder(raiz*2); //izquierda
         vec[raiz]->mostrar();
-        mostrarINorder((raiz*2)+1); //derecha 
+        mostrarInOrder((raiz*2)+1); //derecha 
+    }
+}
+void mostrarPreOrder(int raiz = 1){
+    //cout<<"entra"<< raiz<< "-" <<vec[raiz]->getElem() <<endl; 
+    if(vec[raiz]->getExisteNodo()){
+        vec[raiz]->mostrar();
+        mostrarPreOrder(raiz*2); //izquierda
+        mostrarPreOrder((raiz*2)+1); //derecha 
+    }
+}
+void mostrarPostOrder(int raiz = 1){
+    //cout<<"entra"<< raiz<< "-" <<vec[raiz]->getElem() <<endl; 
+    if(vec[raiz]->getExisteNodo()){
+        mostrarPostOrder(raiz*2); //izquierda
+        mostrarPostOrder((raiz*2)+1); //derecha 
+        vec[raiz]->mostrar();
     }
 }
 
