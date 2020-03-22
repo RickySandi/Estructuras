@@ -87,6 +87,16 @@ int contarNodos(int raiz = 1){
         return 0;
     }
 }
+int altura(int raiz =1){
+    
+    if(vec[raiz]->getExisteNodo()){
+       int alturaIzq = altura(raiz*2);
+       int alturaDer = altura(raiz*2 + 1);
+        return max(alturaIzq, alturaDer) + 1;
+    } else{
+        return 0;
+    }
+}
 
 }; 
 

@@ -21,5 +21,6 @@ int main(){
     // cout<<endl;
     // abb->mostrarPostOrder(); 
     
-    cout<<"El arbol tiene "<<abb->contarNodos()<<" nodos"<<endl;
+   // cout<<"El arbol tiene "<<abb->contarNodos()<<" nodos"<<endl;
+    cout<<"Altura: "<<abb->altura()<<endl;
 }
