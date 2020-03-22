@@ -61,6 +61,7 @@ void mostrarInOrder(int raiz = 1){
         vec[raiz]->mostrar();
         mostrarInOrder((raiz*2)+1); //derecha 
     }
+    
 }
 void mostrarPreOrder(int raiz = 1){
     //cout<<"entra"<< raiz<< "-" <<vec[raiz]->getElem() <<endl; 
@@ -69,6 +70,7 @@ void mostrarPreOrder(int raiz = 1){
         mostrarPreOrder(raiz*2); //izquierda
         mostrarPreOrder((raiz*2)+1); //derecha 
     }
+    
 }
 void mostrarPostOrder(int raiz = 1){
     //cout<<"entra"<< raiz<< "-" <<vec[raiz]->getElem() <<endl; 
@@ -77,6 +79,7 @@ void mostrarPostOrder(int raiz = 1){
         mostrarPostOrder((raiz*2)+1); //derecha 
         vec[raiz]->mostrar();
     }
+    
 }
 int contarNodos(int raiz = 1){
      
@@ -115,18 +118,19 @@ bool buscar(T elemento, int raiz = 1){
         return false;
     }
 }
-T mayor( int raiz =1){
-    if(!vec[raiz *2 +1]->getExisteNodo()){
+
+T menor( int raiz =1){ //izquierda
+    if(!vec[raiz*2]->getExisteNodo()){
         return vec[raiz]->getElem();
     }
         return menor(raiz*2);
     }
 
-T menor( int raiz =1){
-    if(!vec[raiz *2 +1]->getExisteNodo()){
+T mayor( int raiz =1){ //derecha
+    if(!vec[(raiz*2)+1]->getExisteNodo()){
         return vec[raiz]->getElem();
     }
-        return menor(raiz *2 +1);
+        return mayor((raiz*2)+1);
     }
 
 }; 
