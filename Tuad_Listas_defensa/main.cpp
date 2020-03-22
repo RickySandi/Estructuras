@@ -72,15 +72,15 @@ int main(){
         int cont = 0; 
         while (!archEntrada.eof() && archEntrada >> palabra)
         {
-            //tuad->insertarTuad(palabra);
+           // tuad->insertarTuad(palabra);
             lista8->insertarEnSuLugar(palabra); 
             cont++; 
         }
         archEntrada.close();
-        cout<<"cont "<<cont<<endl; 
+        //cout<<"cont "<<cont<<endl; 
 
           // tuad->mostrar(); 
-         lista8->mostrar();
+          lista8->mostrar();
 
     clock_t t1, t2;
 	float f1, f2;

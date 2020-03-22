@@ -1,17 +1,4 @@
-#pragma once
-#include "Terna.h"
-using namespace std;
 
-template <class T>
-
-class Lista_8
-{
-private:
-
-	Terna<T>* first;
-	Terna<T>* last;
-
-public:
 
 	Lista_8() {
 		first = NULL;

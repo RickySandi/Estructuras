@@ -8,7 +8,7 @@ template <class T>
 class Tuad {
 
 private:
-    Lista_8 <string> vec[23];
+    Lista_8 <string> vec[50];
 public:
     Tuad(){
 
@@ -18,7 +18,7 @@ public:
         vec[palabra.length()].insertarEnSuLugar(palabra);
     }
     void mostrar() {
-        for (int i = 0; i < 23; i++) {
+        for (int i = 0; i < 50; i++) {
             vec[i].mostrar();
         }
     }

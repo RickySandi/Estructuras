@@ -78,6 +78,15 @@ void mostrarPostOrder(int raiz = 1){
         vec[raiz]->mostrar();
     }
 }
+int contarNodos(int raiz = 1){
+     
+    if(vec[raiz]->getExisteNodo()){
+        
+        return 1 + contarNodos(raiz*2) + contarNodos(raiz*2+1);
+    } else{
+        return 0;
+    }
+}
 
 }; 
 

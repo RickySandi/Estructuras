@@ -9,7 +9,7 @@ class Lista_8
 private:
 	Terna<T>* first;
 	Terna<T>* last;
-	Lista_8 <T>* vec[23];
+	Lista_8 <T>* vec[50];
 public:
 	Lista_8() {
 		first = NULL;
@@ -92,12 +92,12 @@ public:
 			}
 		
 
-			Terna <T>* bro = new Terna <T>();
-			bro->setValue(v);
-			bro->setNext(aux);
+			Terna <T>* aux2 = new Terna <T>();
+			aux2->setValue(v);
+			aux2->setNext(aux);
 
 			if (aux) {
-			aux->setPrevious(bro);
+			aux->setPrevious(aux2);
 			}
 			}
 		}

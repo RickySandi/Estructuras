@@ -39,5 +39,11 @@ int getExisteNodo(){
 void mostrar(){
     cout<<elem<<" "; 
 }
+void moverIzquierda(){
+    elem *= 2; 
+}
+void moverDerecha(){
+    elem *= 2+1; 
+}
 
 }; 

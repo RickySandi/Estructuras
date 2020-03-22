@@ -15,10 +15,11 @@ int main(){
     abb->insertar(12);
     abb->insertar(20);
     
-    abb->mostrarInOrder();
-    cout<<endl;
-    abb->mostrarPreOrder();
-    cout<<endl;
-    abb->mostrarPostOrder(); 
-  
+    // abb->mostrarInOrder();
+    // cout<<endl;
+    // abb->mostrarPreOrder();
+    // cout<<endl;
+    // abb->mostrarPostOrder(); 
+    
+    cout<<"El arbol tiene "<<abb->contarNodos()<<" nodos"<<endl;
 }
