@@ -114,9 +114,20 @@ bool buscar(T elemento, int raiz = 1){
     } else {
         return false;
     }
-
 }
+T mayor( int raiz =1){
+    if(!vec[raiz *2 +1]->getExisteNodo()){
+        return vec[raiz]->getElem();
+    }
+        return menor(raiz*2);
+    }
 
+T menor( int raiz =1){
+    if(!vec[raiz *2 +1]->getExisteNodo()){
+        return vec[raiz]->getElem();
+    }
+        return menor(raiz *2 +1);
+    }
 
 }; 
 
