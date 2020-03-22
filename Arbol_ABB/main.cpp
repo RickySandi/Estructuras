@@ -22,5 +22,13 @@ int main(){
     // abb->mostrarPostOrder(); 
     
    // cout<<"El arbol tiene "<<abb->contarNodos()<<" nodos"<<endl;
-    cout<<"Altura: "<<abb->altura()<<endl;
+    // cout<<"Altura: "<<abb->altura()<<endl;
+     
+    if(abb->buscar(30)){
+        cout<< "Elemento encontrado"<<endl;
+    } else {
+        cout<< "Elemento no encontrado"<<endl;
+    }
+
+
 }

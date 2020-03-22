@@ -97,6 +97,26 @@ int altura(int raiz =1){
         return 0;
     }
 }
+bool buscar(T elemento, int raiz = 1){
+    if(vec[raiz]->getExisteNodo()){
+        if(vec[raiz]->getElem() == elemento) {
+            return true;
+        } else {
+            if (elemento < vec[raiz]->getElem()) {
+               
+               return buscar(elemento, raiz*2);
+            } else {
+                
+                return buscar(elemento, raiz*2+ 1);
+            }
+        }
+
+    } else {
+        return false;
+    }
+
+}
+
 
 }; 
 
