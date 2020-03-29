@@ -86,15 +86,15 @@ void mostrarPostOrder(Nodo <T> *nodo){
     }
     
 }
-// int contarNodos(int nodo = 1){
+int contarNodos(Nodo <T> *nodo){
      
-//     if(vec[nodo]->getExisteNodo()){
+    if(nodo != NULL){
         
-//         return 1 + contarNodos(nodo*2) + contarNodos(nodo*2+1);
-//     } else{
-//         return 0;
-//     }
-// }
+        return 1 + contarNodos(nodo->getSubIzq()) + contarNodos(nodo->getSubDer());
+    } else{
+        return 0;
+    }
+}
 // int altura(int nodo =1){
     
 //     if(vec[nodo]->getExisteNodo()){

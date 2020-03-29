@@ -137,7 +137,7 @@ int main(){
     cout<<"POST ORDER"<<endl;
     abb->mostrarPostOrder(abb->getRaiz()); 
     cout<<endl;
-    //abcdefg
+    cout<<"El arbol tiene "<<abb->contarNodos(abb->getRaiz())<<" nodos"<<endl;
     
 
 
