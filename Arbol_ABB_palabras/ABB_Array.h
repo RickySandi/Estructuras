@@ -13,7 +13,7 @@ Calcular la altura del árbol
 Buscar
 Encontrar el Menor
 Encontrar el Mayor
-+ Eliminar al azar 
++ Eliminar
 */
 template <class T>
 
@@ -139,7 +139,6 @@ T mayor(Nodo <T> *nodo){ //derecha
     }
 
 void eliminar(T elemento,Nodo<T>*& nodo){
-    bool res;
     T aux;
 
     if(nodo != NULL){
@@ -169,30 +168,8 @@ void eliminar(T elemento,Nodo<T>*& nodo){
                 }    
             }
         }
-    }
-    
+    } 
 }
-
-
-
-// void eliminar(T elemento, Nodo <T> *&nodo){
-//     if(nodo->esHoja()){
-//         delete nodo; 
-//     } else{
-//         int var = rand()%2; //aleatorio 
-//         if(var){
-//             if(nodo->getSubIzq()!= NULL){
-//                 Nodo <string> *  mayor; 
-//                 mayor = this->mayor(nodo->getSubIzq()); 
-//                 nodo->setElem(mayor); 
-//                 eliminar(nodo->getSubIzq(),mayor);
-
-//             }
-//         }
-//     }
-
-// }
-   
 
 }; 
 
