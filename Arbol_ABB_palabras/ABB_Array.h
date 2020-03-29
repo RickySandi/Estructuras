@@ -124,19 +124,19 @@ bool buscar(T elemento,Nodo <T> *nodo){
     }
 }
 
-// T menor( int nodo =1){ //izquierda
-//     if(!vec[nodo*2]->getExisteNodo()){
-//         return vec[nodo]->getElem();
-//     }
-//         return menor(nodo*2);
-//     }
+T menor(Nodo <T> *nodo){ //izquierda
+    if(nodo->getSubIzq() == NULL){
+        return nodo->getElem();
+    }
+        return menor(nodo->getSubIzq());
+    }
 
-// T mayor( int nodo =1){ //derecha
-//     if(!vec[(nodo*2)+1]->getExisteNodo()){
-//         return vec[nodo]->getElem();
-//     }
-//         return mayor((nodo*2)+1);
-//     }
+T mayor(Nodo <T> *nodo){ //derecha
+     if(nodo->getSubDer() == NULL){
+        return nodo->getElem();
+    }
+        return mayor(nodo->getSubDer());
+    }
 
 // void imprimirNivel(int nodo ,int nivel){
 //      if(vec[nodo]->getExisteNodo()){

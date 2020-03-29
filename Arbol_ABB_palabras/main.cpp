@@ -140,14 +140,16 @@ int main(){
     cout<<"El arbol tiene "<<abb->contarNodos(abb->getRaiz())<<" nodos"<<endl;
     cout<<"Altura: "<<abb->altura(abb->getRaiz())<<endl;
 
-    string v; 
-    cout << "Ingresa un valor para buscar" << endl;
-            cin>>v; 
-            if(abb->buscar(v,abb->getRaiz())){
-                cout<< "Elemento encontrado"<<endl;
-            } else {
-                cout<< "Elemento no encontrado"<<endl;
-            }
+    // string v; 
+    // cout << "Ingresa un valor para buscar" << endl;
+    //         cin>>v; 
+    //         if(abb->buscar(v,abb->getRaiz())){
+    //             cout<< "Elemento encontrado"<<endl;
+    //         } else {
+    //             cout<< "Elemento no encontrado"<<endl;
+    //         }
+    cout<< "El menor es "<<abb->menor(abb->getRaiz())<<endl;
+    cout<< "El mayor es "<<abb->mayor(abb->getRaiz())<<endl;
     
 
 
