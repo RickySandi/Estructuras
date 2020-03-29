@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include "Dupla.h"
+#include "Nodo.h"
 using namespace std;
 
 /*
@@ -20,7 +20,7 @@ template <class T>
 class ABB_Array
 {
 private:
-Dupla<T> * raiz; //1000
+Nodo<T> * raiz; //1000
 
 
 public:
@@ -30,14 +30,14 @@ ABB_Array(){
 
 ~ABB_Array(){
 }
-Dupla<T>*& getRaiz(){
+Nodo<T>*& getRaiz(){
     return raiz; 
 }
 
 
-void insertar(T elemento, Dupla <T> *&nodo){ //Testear 
+void insertar(T elemento, Nodo <T> *&nodo){ //Testear 
     if (nodo == NULL){
-        nodo = new Dupla <T>();
+        nodo = new Nodo <T>();
         nodo->setElem(elemento); 
         nodo->setCont(1); 
     
@@ -59,7 +59,7 @@ void insertar(T elemento, Dupla <T> *&nodo){ //Testear
   
 }
 
-void mostrarInOrder(Dupla <T> *nodo){
+void mostrarInOrder(Nodo <T> *nodo){
     
     if(nodo != NULL){ 
         mostrarInOrder(nodo->getSubIzq()); //izquierda

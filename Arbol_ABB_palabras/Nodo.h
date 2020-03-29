@@ -4,23 +4,23 @@ using namespace std;
 
 template <class T>
 
-class Dupla
+class Nodo
 {
 private:
 T elem;
 int cont; 
-Dupla * subIzq;
-Dupla * subDer; 
+Nodo * subIzq;
+Nodo * subDer; 
 
 
 public:
-Dupla(){
+Nodo(){
     cont = 0; 
     subIzq = NULL;
     subDer = NULL;
 }
 
-~Dupla(){
+~Nodo(){
 }
 void setElem(T v){
     elem = v; 
@@ -46,16 +46,16 @@ int getExisteNodo(){
 void mostrar(){
     cout<<elem<<" "; 
 }
-void setSubIzq(Dupla <T>* Sizq){
+void setSubIzq(Nodo <T>* Sizq){
      subIzq = Sizq; 
 }
-Dupla <T>*& getSubIzq(){
+Nodo <T>*& getSubIzq(){
     return subIzq;
 }
-void setSubDer(Dupla <T>* Sder){
+void setSubDer(Nodo <T>* Sder){
      subDer = Sder; 
 }
-Dupla <T>*& getSubDer(){
+Nodo <T>*& getSubDer(){
     return subDer;
 }
 

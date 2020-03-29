@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include <fstream>
-#include "Dupla.h"
+#include "Nodo.h"
 #include "ABB_Array.h"
 using namespace std;
 /*
@@ -124,6 +124,7 @@ int main(){
     abb->insertar("aa",abb->getRaiz());
     abb->insertar("bb",abb->getRaiz());
     abb->insertar("rr",abb->getRaiz());
+    abb->insertar("zz",abb->getRaiz());
     abb->mostrarInOrder(abb->getRaiz()); 
     // abb->insertar("zz",abb->getRaiz());
 
