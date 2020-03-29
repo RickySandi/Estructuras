@@ -64,30 +64,28 @@ void mostrarInOrder(Nodo <T> *nodo){
     if(nodo != NULL){ 
         mostrarInOrder(nodo->getSubIzq()); //izquierda
         nodo->mostrar();
-        cout<<endl;
         mostrarInOrder(nodo->getSubDer()); //derecha 
     }
 }
     
-// }
-// void mostrarPreOrder(int nodo = 1){
-//     //cout<<"entra"<< nodo<< "-" <<vec[nodo]->getElem() <<endl; 
-//     if(vec[nodo]->getExisteNodo()){
-//         vec[nodo]->mostrar();
-//         mostrarPreOrder(nodo*2); //izquierda
-//         mostrarPreOrder((nodo*2)+1); //derecha 
-//     }
+void mostrarPreOrder(Nodo <T> *nodo){
+     
+    if(nodo != NULL){
+        nodo->mostrar();
+        mostrarPreOrder(nodo->getSubIzq()); //izquierda
+        mostrarPreOrder(nodo->getSubDer()); //derecha 
+    }
     
-// }
-// void mostrarPostOrder(int nodo = 1){
-//     //cout<<"entra"<< nodo<< "-" <<vec[nodo]->getElem() <<endl; 
-//     if(vec[nodo]->getExisteNodo()){
-//         mostrarPostOrder(nodo*2); //izquierda
-//         mostrarPostOrder((nodo*2)+1); //derecha 
-//         vec[nodo]->mostrar();
-//     }
+}
+void mostrarPostOrder(Nodo <T> *nodo){
+    //cout<<"entra"<< nodo<< "-" <<vec[nodo]->getElem() <<endl; 
+    if(nodo != NULL){
+        mostrarPostOrder(nodo->getSubIzq()); //izquierda
+        mostrarPostOrder(nodo->getSubDer()); //derecha 
+        nodo->mostrar();
+    }
     
-// }
+}
 // int contarNodos(int nodo = 1){
      
 //     if(vec[nodo]->getExisteNodo()){

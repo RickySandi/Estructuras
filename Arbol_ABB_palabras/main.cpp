@@ -120,13 +120,25 @@ int main(){
    ABB_Array<string>* abb = new ABB_Array<string>();
    //Dupla <string> *  raiz; 
 
-    abb->insertar("prueba",abb->getRaiz());
-    abb->insertar("aa",abb->getRaiz());
-    abb->insertar("bb",abb->getRaiz());
-    abb->insertar("rr",abb->getRaiz());
-    abb->insertar("zz",abb->getRaiz());
-    abb->mostrarInOrder(abb->getRaiz()); 
-    // abb->insertar("zz",abb->getRaiz());
+    abb->insertar("d",abb->getRaiz());
+    abb->insertar("b",abb->getRaiz());
+    abb->insertar("f",abb->getRaiz());
+    abb->insertar("a",abb->getRaiz());
+    abb->insertar("c",abb->getRaiz());
+    abb->insertar("e",abb->getRaiz());
+    abb->insertar("g",abb->getRaiz());
+    
+    cout<<"IN ORDER"<<endl; 
+    abb->mostrarInOrder(abb->getRaiz());
+    cout<<endl; 
+    cout<<"PRE ORDER"<<endl;
+    abb->mostrarPreOrder(abb->getRaiz()); 
+    cout<<endl;
+    cout<<"POST ORDER"<<endl;
+    abb->mostrarPostOrder(abb->getRaiz()); 
+    cout<<endl;
+    //abcdefg
+    
 
 
 }   
