@@ -150,6 +150,39 @@ int main(){
     //         }
     cout<< "El menor es "<<abb->menor(abb->getRaiz())<<endl;
     cout<< "El mayor es "<<abb->mayor(abb->getRaiz())<<endl;
+
+    // if(abb->eliminar("c",abb->getRaiz())){
+    //   cout<<"elemento eliminado"<<endl; 
+    // } else{
+    //   cout<<"elemento no encontrado"<<endl;
+    // }
+
+    // cout<<"IN ORDER"<<endl; 
+    // abb->mostrarInOrder(abb->getRaiz());
+    // cout<<endl; 
+
+    cout<<"IN ORDER"<<endl; 
+    abb->mostrarInOrder(abb->getRaiz());
+    cout<<endl;
+    
+    cout<<endl; 
+    abb->eliminar("c",abb->getRaiz());
+
+    cout<<"IN ORDER"<<endl; 
+    abb->mostrarInOrder(abb->getRaiz());
+    cout<<endl;
+
+    abb->eliminar("r",abb->getRaiz());  
+
+    cout<<"IN ORDER"<<endl; 
+    abb->mostrarInOrder(abb->getRaiz());
+    cout<<endl;
+
+    abb->eliminar("e",abb->getRaiz()); 
+
+    cout<<"IN ORDER"<<endl; 
+    abb->mostrarInOrder(abb->getRaiz());
+    cout<<endl;
     
 
 

@@ -138,32 +138,59 @@ T mayor(Nodo <T> *nodo){ //derecha
         return mayor(nodo->getSubDer());
     }
 
-// void imprimirNivel(int nodo ,int nivel){
-//      if(vec[nodo]->getExisteNodo()){
-//         if(nivel == 1){
-//             cout<<vec[nodo]->getElem()<<"="<<vec[nodo]->getCont() << " ";
-//         } 
-//         else if(nivel > 1){
-//             imprimirNivel(nodo*2, nivel -1);
-//             imprimirNivel((nodo*2)+1, nivel -1);
+void eliminar(T elemento,Nodo<T>*& nodo){
+    bool res;
+    T aux;
 
+    if(nodo != NULL){
+        if(elemento < nodo->getElem()) {
+            eliminar(elemento, nodo->getSubIzq());
+        }
+        
+       else if (elemento > nodo->getElem()){
+            eliminar(elemento, nodo->getSubDer());   
+        }
+        else if(elemento == nodo->getElem()){
+            
+            if(nodo->esHoja(nodo)){
+
+                nodo = NULL;
+            }
+            else{
+                if(nodo->getSubIzq()!= NULL){
+                    aux=mayor(nodo->getSubIzq());
+                    nodo->setElem(aux);
+                    eliminar(aux, nodo->getSubIzq());
+
+                }else{
+                    aux=menor(nodo->getSubDer());
+                    nodo->setElem(aux);
+                    eliminar(aux, nodo->getSubDer());
+                }    
+            }
+        }
+    }
+    
+}
+
+
+
+// void eliminar(T elemento, Nodo <T> *&nodo){
+//     if(nodo->esHoja()){
+//         delete nodo; 
+//     } else{
+//         int var = rand()%2; //aleatorio 
+//         if(var){
+//             if(nodo->getSubIzq()!= NULL){
+//                 Nodo <string> *  mayor; 
+//                 mayor = this->mayor(nodo->getSubIzq()); 
+//                 nodo->setElem(mayor); 
+//                 eliminar(nodo->getSubIzq(),mayor);
+
+//             }
 //         }
 //     }
-// }
 
-// void mostrarNivel(int raiz =1){
-//    // int res,A1,A2
-//    if(!vec[raiz]->getExisteNodo()){
-//        cout<< "Arbol vacio"<<endl; 
-//     }
-//     else{ 
-//    int alt = altura(); 
-//     for (int i =1; i <= alt; i++){
-//         imprimirNivel(raiz,i);
-//         cout<<endl; 
-        
-//     }
-//     }
 // }
    
 

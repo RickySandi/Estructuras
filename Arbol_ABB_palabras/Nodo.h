@@ -58,6 +58,9 @@ void setSubDer(Nodo <T>* Sder){
 Nodo <T>*& getSubDer(){
     return subDer;
 }
+bool esHoja(Nodo <T> *nodo){
+    return nodo->getSubIzq() == NULL && nodo->getSubDer() == NULL; 
+}
 
 
 }; 
