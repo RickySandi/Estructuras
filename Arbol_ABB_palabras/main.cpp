@@ -117,7 +117,7 @@ Encontrar el Mayor
 int main(){
 
  //   mostrarMenu();
-   ABB_Array<string>* abb = new ABB_Array<string>();
+   ABB_Array<string>* abb = new ABB_Array<string>();//n*2 izq ; (n*2)+1 der 
    //Dupla <string> *  raiz; 
 
     abb->insertar("d",abb->getRaiz());
@@ -138,6 +138,16 @@ int main(){
     abb->mostrarPostOrder(abb->getRaiz()); 
     cout<<endl;
     cout<<"El arbol tiene "<<abb->contarNodos(abb->getRaiz())<<" nodos"<<endl;
+    cout<<"Altura: "<<abb->altura(abb->getRaiz())<<endl;
+
+    int v; 
+    cout << "Ingresa un valor para buscar" << endl;
+            cin>>v; 
+            if(abb->buscar(abb->getRaiz())){
+                cout<< "Elemento encontrado"<<endl;
+            } else {
+                cout<< "Elemento no encontrado"<<endl;
+            }
     
 
 

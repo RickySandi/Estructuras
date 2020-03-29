@@ -95,34 +95,34 @@ int contarNodos(Nodo <T> *nodo){
         return 0;
     }
 }
-// int altura(int nodo =1){
+int altura(Nodo <T> *nodo){
     
-//     if(vec[nodo]->getExisteNodo()){
-//        int alturaIzq = altura(nodo*2);
-//        int alturaDer = altura(nodo*2 + 1);
-//         return max(alturaIzq, alturaDer) + 1;
-//     } else{
-//         return 0;
-//     }
-// }
-// bool buscar(T elemento, int nodo = 1){
-//     if(vec[nodo]->getExisteNodo()){
-//         if(vec[nodo]->getElem() == elemento) {
-//             return true;
-//         } else {
-//             if (elemento < vec[nodo]->getElem()) {
+    if(nodo != NULL){
+       int alturaIzq = altura(nodo->getSubIzq());
+       int alturaDer = altura(nodo->getSubDer());
+        return max(alturaIzq, alturaDer) + 1;
+    } else{
+        return 0;
+    }
+}
+bool buscar(T elemento,Nodo <T> *nodo){
+    if(nodo != NULL){
+        if(nodo->getElem() == elemento) {
+            return true;
+        } else {
+            if (elemento < nodo->getElem()) {
                
-//                return buscar(elemento, nodo*2);
-//             } else {
+               return buscar(elemento, nodo->getSubIzq());
+            } else {
                 
-//                 return buscar(elemento, nodo*2+ 1);
-//             }
-//         }
+                return buscar(elemento, nodo->getSubDer());
+            }
+        }
 
-//     } else {
-//         return false;
-//     }
-// }
+    } else {
+        return false;
+    }
+}
 
 // T menor( int nodo =1){ //izquierda
 //     if(!vec[nodo*2]->getExisteNodo()){
