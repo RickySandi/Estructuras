@@ -8,13 +8,16 @@ class Dupla
 {
 private:
 T elem;
-int cont;  
+int cont; 
+Dupla * subIzq;
+Dupla * subDer; 
 
 
 public:
 Dupla(){
     cont = 0; 
-    elem = NULL;
+    subIzq = NULL;
+    subDer = NULL;
 }
 
 ~Dupla(){
@@ -30,7 +33,7 @@ T getElem(){
     return elem; 
 }
 
-T getCont(){
+int getCont(){
     return cont; 
 }
 void setExisteNodo(){
@@ -42,6 +45,18 @@ int getExisteNodo(){
 }
 void mostrar(){
     cout<<elem<<" "; 
+}
+void setSubIzq(Dupla <T>* Sizq){
+     subIzq = Sizq; 
+}
+Dupla <T>*& getSubIzq(){
+    return subIzq;
+}
+void setSubDer(Dupla <T>* Sder){
+     subDer = Sder; 
+}
+Dupla <T>*& getSubDer(){
+    return subDer;
 }
 
 

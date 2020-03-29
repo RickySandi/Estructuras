@@ -21,7 +21,8 @@ void mostrarMenu()
         cout << "7.Buscar" << endl;
         cout << "8.Encontrar mayor" << endl;
         cout << "9.Encontrar menor" << endl;
-        cout << "10.Salir" << endl;
+        cout<<  "10. Mostrar por niveles"<<endl;
+        cout << "11.Salir" << endl;
         cout << endl;
         cout << "Ingresa una opcion" << endl;
         cin >> op;
@@ -71,16 +72,20 @@ void mostrarMenu()
             cout<< "El menor es "<<abb->menor()<<endl;
             break;
         case 10:
+            abb->mostrarNivel();
+            break;
+        case 11:
             break;
         default:
             break;
         }
         
-    } while (op != 10);
+    } while (op != 11);
 }
 
 int main(){
 
     mostrarMenu();
 
-}
+
+}   
