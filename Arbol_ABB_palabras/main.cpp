@@ -24,6 +24,7 @@ void mostrarMenu()
     string v;
     fstream archEntrada;
     string palabra;
+    int repeticiones; 
    
     do {
         cout << "-----MENU-----" << endl;
@@ -38,7 +39,8 @@ void mostrarMenu()
         cout << "9.Encontrar menor" << endl;
         cout << "11.Eliminar al azar" << endl;
         cout << "12.Insertar libro" << endl;
-        cout << "13.Salir" << endl;
+        cout << "13.Contar palabras repetidas mas de 100 veces" << endl;
+        cout << "14.Salir" << endl;
         cout << endl;
         cout << "Ingresa una opcion" << endl;
         cin >> op;
@@ -101,12 +103,16 @@ void mostrarMenu()
             archEntrada.close();
             break;
         case 13:
+            repeticiones= abb->contarCienRepeticiones(abb->getRaiz());
+            cout<<endl<<repeticiones<<" palabras se repiten mas de 100 veces" <<endl; 
+            break;
+        case 14:
             break;
         default:
             break;
         }
         
-    } while (op != 13);
+    } while (op != 14);
 }
 
 int main(){

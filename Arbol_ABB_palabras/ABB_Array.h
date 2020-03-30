@@ -171,5 +171,23 @@ void eliminar(T elemento,Nodo<T>*& nodo){
     } 
 }
 
+int contarCienRepeticiones(Nodo <T> *&nodo, int rep = 0){
+
+    if(nodo != NULL){
+        int cont = 0;
+        if(nodo->getCont() > 100){
+        nodo->mostrar(); 
+          cont++;
+        }
+        
+        cont+= contarCienRepeticiones(nodo->getSubIzq(), rep);
+		cont+= contarCienRepeticiones(nodo->getSubDer(), rep);
+        return cont;
+    }
+    else {
+      return 0; 
+    }
+}
+
 }; 
 
