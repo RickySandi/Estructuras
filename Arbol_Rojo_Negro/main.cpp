@@ -1,19 +1,26 @@
 #include <iostream>
 #include "Arbol_Rojo_Negro.h"
+#include <fstream>
 
 using namespace std;
 
 void mostrarMenu() 
 {
-    Arbol_Rojo_Negro<int> arbol;
+    Arbol_Rojo_Negro<string> arbol;
+    fstream archEntrada;
+    string palabra; 
     
 
     bool continuar = true;
     bool paridad = true;
     bool lado = true;
 
+    bool res; 
+
+   
+
     int op;
-    int v;
+    string v;
    
     do {
         cout << "-----MENU-----" << endl;
@@ -26,8 +33,9 @@ void mostrarMenu()
         cout << "7.Buscar" << endl;
         cout << "8.Encontrar mayor" << endl;
         cout << "9.Encontrar menor" << endl;
-        cout<<  "10. Mostrar por niveles"<<endl;
-        cout << "11.Salir" << endl;
+        cout<<  "10. Insertar libro"<<endl;
+        cout<<  "11. Verificar hijo negro"<<endl; 
+        cout << "12.Salir" << endl;
         cout << endl;
         cout << "Ingresa una opcion" << endl;
         cin >> op;
@@ -37,6 +45,7 @@ void mostrarMenu()
             cout << "Ingresa un valor para insertar" << endl;
             cin >> v;
             arbol.insertar(v,arbol.getRaiz(),&continuar, &paridad, &lado);
+            arbol.getRaiz()->setColor('N'); 
             break;
         case 2:
             cout << "Mostrando Arbol IN Order" << endl;
@@ -77,12 +86,27 @@ void mostrarMenu()
             cout<< "El menor es "<<arbol.menor(arbol.getRaiz())<<endl;
             break;
         case 10:
+             archEntrada.open("soledad.txt");
+            while (!archEntrada.eof() && archEntrada >> palabra)
+            {
+                arbol.insertar(palabra,arbol.getRaiz(),&continuar, &paridad, &lado);
+                arbol.getRaiz()->setColor('N'); 
+            }
+            archEntrada.close();
+            break;
+        case 11:
+       
+        res = arbol.hijoNegro(arbol.getRaiz()); 
+        if(res){cout<<"Si"<<endl;}
+        else {cout<<"No"<<endl;}
+            break;
+        case 12:
             break;
         default:
             break;
         }
         
-    } while (op != 10);
+    } while (op != 12);
 }
 
 

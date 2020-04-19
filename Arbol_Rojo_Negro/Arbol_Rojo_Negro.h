@@ -168,9 +168,9 @@ int contarNodos(Nodo <T> *nodo){
 int altura(Nodo <T> *nodo){
     
     if(nodo != NULL){
-       int alturaIzq = altura(nodo->getSubIzq());
+       int altunodoq = altura(nodo->getSubIzq());
        int alturaDer = altura(nodo->getSubDer());
-        return max(alturaIzq, alturaDer) + 1;
+        return max(altunodoq, alturaDer) + 1;
     } else{
         return 0;
     }
@@ -240,6 +240,46 @@ void eliminar(T elemento,Nodo<T>*& nodo){
         }
     } 
 }
+
+bool hijoNegro(Nodo <T> *nodo){
+	
+	bool res = false;
+	if (nodo != NULL ){
+		if (nodo->getColor() == 'R'){
+			if (nodo->getSubIzq() != NULL && nodo->getSubDer() != NULL){
+				if (nodo->getSubIzq()->getColor() == 'N' && nodo->getSubDer()->getColor() == 'N'){
+					res = true;
+				}
+				else{ res = false;}
+			}
+			else{ res = true;}
+
+			if (nodo->getSubIzq() != NULL && nodo->getSubDer() == NULL){
+				if (nodo->getSubIzq()->getColor() == 'N'){
+
+					res = true;
+				}
+				else{ res = false;}
+			}
+			else
+			{
+				if (nodo->getSubDer()->getColor() == 'N'){
+					res = true;
+				}
+				else{ res = false;}
+			}
+		}
+		else
+		{
+			res = hijoNegro(nodo->getSubIzq());
+			res = hijoNegro(nodo->getSubDer());
+		}
+	}
+	else{ res = false;}
+
+	return res;
+}
+
 
 Nodo<T>*& getRaiz(){
 		return nodo;
