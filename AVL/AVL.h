@@ -17,9 +17,9 @@ public:
 	{
 
 	}
-	bool insertar(T elemento, Nodo<T>*& nodo, bool* continuar)
-	{
-	//bool *continuar=false;
+    bool insertar(T elemento, Nodo<T>*& nodo)
+   {
+    bool continuar=false;
     Nodo<T>* nuevo;
     if (nodo == NULL)
     {
@@ -29,29 +29,27 @@ public:
         nuevo->setSubDer(NULL);
         nuevo->setSubIzq(NULL);
         nodo = nuevo;
-        *continuar = true;
+        continuar = true;
         
     }
     else{
         if (elemento < nodo->getElem())
         {
-            *continuar = insertar(elemento, nodo->getSubIzq(),continuar);     
-            if (*continuar == true)
+            continuar = insertar(elemento, nodo->getSubIzq());
+            if (continuar == true)
             {
                 nodo->setCont(nodo->getCont() + 1);
                 if (nodo->getCont() == 0)
-                    *continuar = false;
-                else
-                {
+                    continuar = false;
+                else{
                     if (nodo->getCont() == 2)
                     {
-                        *continuar = false;
+                        continuar = false;
                         if (nodo->getSubIzq()->getCont() == 1)
                             rotarDerechaSimple(nodo); 
-                        else
-                        {
+                        else{
                             if (nodo->getSubIzq()->getCont() == -1)
-                                rotarDerechaCompuesto(nodo); 
+                            rotarDerechaCompuesto(nodo);
                         }
                     }
                 }
@@ -61,21 +59,19 @@ public:
         {
             if (elemento > nodo->getElem())
             {
-                *continuar = insertar(elemento, nodo->getSubDer(),continuar);
-                if (*continuar == true)
+                continuar = insertar(elemento, nodo->getSubDer());
+                if (continuar == true)
                 {
                     nodo->setCont(nodo->getCont() - 1);
                     if (nodo->getCont() == 0)
-                        *continuar = false;
-                    else
-                    {
+                        continuar = false;
+                    else{
                         if (nodo->getCont() == -2)
                         {
-                            *continuar = false;
+                            continuar = false;
                             if (nodo->getSubDer()->getCont() == -1)
                                 rotarIzquirdaSimple(nodo); 
-                            else
-                            {
+                            else{
                                 if (nodo->getSubDer()->getCont() == 1)
                                     rotarIzquirdaCompuesto(nodo); 
                             }
@@ -90,26 +86,33 @@ public:
 }
 
 	void rotarIzquirdaSimple(Nodo<T>*& nodo){
-		Nodo<T>* nuevaRaiz = nodo->getSubDer();
-        Nodo<T>* hi = nodo->getSubIzq();
-    
-        nuevaRaiz->setSubIzq(nodo);
-        nodo->setSubDer(hi);
-        nuevaRaiz->setCont(0);
-        nodo->setCont(0);
-        nodo = nuevaRaiz;
+	    Nodo<T>* nuevo = nodo->getSubDer();
+		Nodo<T>* flotante;
+		if (nuevo->getSubIzq() != NULL){
+			flotante = nuevo->getSubIzq();
+		}
+		else{
+			flotante = NULL;
+		}
+		nuevo->getSubIzq() = nodo;
+		nodo->setSubDer(flotante);
+		nodo = nuevo;
 	}
 
 	void rotarDerechaSimple(Nodo<T>*& nodo){
 
-		Nodo<T>* nuevaRaiz = nodo->getSubIzq();
-        Nodo<T>* hi = nodo->getSubDer();
-    
-        nuevaRaiz->setSubDer(nodo);
-        nodo->setSubIzq(hi);
-        nuevaRaiz->setCont(0);
-        nodo->setCont(0);
-        nodo = nuevaRaiz;
+		Nodo<T>* nuevo = nodo->getSubIzq();
+		Nodo<T>* flotante;
+
+		if (nuevo->getSubDer() != NULL){
+			flotante = nuevo->getSubDer();
+		}
+		else{
+			flotante = NULL;
+		}
+		nuevo->setSubDer(nodo);
+		nodo->setSubIzq(flotante);
+		nodo = nuevo;
 	}
 
     void rotarIzquirdaCompuesto(Nodo<T>*& nodo){
@@ -213,24 +216,25 @@ int contarNodos(Nodo <T> *nodo){
 int altura(Nodo <T> *nodo){
     
     if(nodo != NULL){
-       int alturaIzq= altura(nodo->getSubIzq());
+       int altunodoq= altura(nodo->getSubIzq());
        int alturaDer = altura(nodo->getSubDer());
-        return max(alturaIzq, alturaDer) + 1;
+       
+        return max(altunodoq, alturaDer)+1;
     } else{
         return 0;
     }
 }
-bool buscar(T elemento,Nodo <T> *nodo){
+bool buscar(T elementoemento,Nodo <T> *nodo){
     if(nodo != NULL){
-        if(nodo->getElem() == elemento) {
+        if(nodo->getElem() == elementoemento) {
             return true;
         } else {
-            if (elemento < nodo->getElem()) {
+            if (elementoemento < nodo->getElem()) {
                
-               return buscar(elemento, nodo->getSubIzq());
+               return buscar(elementoemento, nodo->getSubIzq());
             } else {
                 
-                return buscar(elemento, nodo->getSubDer());
+                return buscar(elementoemento, nodo->getSubDer());
             }
         }
 
