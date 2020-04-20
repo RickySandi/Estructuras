@@ -38,7 +38,7 @@ void mostrarMenu()
         case 1:
             cout << "Ingresa un valor para insertar" << endl;
             cin >> v;
-            arbol.insertar(v,arbol.getRaiz());
+            arbol.insertar(v,arbol.getRaiz(),continuar);
             break;
         case 2:
             cout << "Mostrando Arbol IN Order" << endl;
@@ -82,7 +82,7 @@ void mostrarMenu()
              archEntrada.open("soledad.txt");
             while (!archEntrada.eof() && archEntrada >> palabra)
             {
-                arbol.insertar(palabra,arbol.getRaiz());
+                arbol.insertar(palabra,arbol.getRaiz(),continuar);
                 
             }
             archEntrada.close();

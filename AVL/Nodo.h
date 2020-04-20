@@ -9,6 +9,7 @@ class Nodo
 private:
 T elem;
 int cont; 
+int factor;
 Nodo * subIzq;
 Nodo * subDer; 
 
@@ -16,6 +17,7 @@ Nodo * subDer;
 public:
 Nodo(){
     cont = 0; 
+    factor = 0; 
     subIzq = NULL;
     subDer = NULL;
 }
@@ -35,6 +37,14 @@ void setCont(int c){
 
 int getCont(){
     return cont; 
+}
+
+void setFactor(int f){
+    factor = f; 
+}
+
+int getFactor(){
+    return factor; 
 }
 
 void mostrar(){
