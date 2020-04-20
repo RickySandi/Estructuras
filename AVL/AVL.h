@@ -146,6 +146,9 @@ public:
         }
 }
 
+ 
+
+
 void rotarDerechaCompuesto(Nodo<T>*& nodo){
     Nodo<T>* nuevaRaiz = nodo->getSubIzq()->getSubDer();
     Nodo<T>* hd = nuevaRaiz->getSubDer(); 

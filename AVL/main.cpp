@@ -100,38 +100,38 @@ void mostrarMenu()
 
 int main()
 {
-   // mostrarMenu(); 
+    mostrarMenu(); 
 
-    bool continuar = true;
-    AVL<int> arbol;
-    arbol.insertar(15, arbol.getRaiz());
-    arbol.mostrarInOrder(arbol.getRaiz());
-    cout << endl;
-    arbol.insertar(8, arbol.getRaiz());
-    arbol.mostrarInOrder(arbol.getRaiz());
-    cout << endl;
-    arbol.insertar(33, arbol.getRaiz());
-    arbol.mostrarInOrder(arbol.getRaiz());
-    cout << endl;
-    arbol.insertar(12, arbol.getRaiz());
-    arbol.mostrarInOrder(arbol.getRaiz());
-    cout << endl;
-    arbol.insertar(9, arbol.getRaiz());
-    arbol.mostrarInOrder(arbol.getRaiz());
-    cout << endl;
-    arbol.insertar(5, arbol.getRaiz());
-    arbol.mostrarInOrder(arbol.getRaiz());
-    cout << endl;
+    // bool continuar = true;
+    // AVL<int> arbol;
+    // arbol.insertar(15, arbol.getRaiz());
+    // arbol.mostrarInOrder(arbol.getRaiz());
+    // cout << endl;
+    // arbol.insertar(8, arbol.getRaiz());
+    // arbol.mostrarInOrder(arbol.getRaiz());
+    // cout << endl;
+    // arbol.insertar(33, arbol.getRaiz());
+    // arbol.mostrarInOrder(arbol.getRaiz());
+    // cout << endl;
+    // arbol.insertar(12, arbol.getRaiz());
+    // arbol.mostrarInOrder(arbol.getRaiz());
+    // cout << endl;
+    // arbol.insertar(9, arbol.getRaiz());
+    // arbol.mostrarInOrder(arbol.getRaiz());
+    // cout << endl;
+    // arbol.insertar(5, arbol.getRaiz());
+    // arbol.mostrarInOrder(arbol.getRaiz());
+    // cout << endl;
 
-    cout<<"altura "<<arbol.altura(arbol.getRaiz())<<endl;
-    cout<<"El arbol tiene "<<arbol.contarNodos(arbol.getRaiz())<<" nodos"<<endl;
+    // cout<<"altura "<<arbol.altura(arbol.getRaiz())<<endl;
+    // cout<<"El arbol tiene "<<arbol.contarNodos(arbol.getRaiz())<<" nodos"<<endl;
 
-    cout<<"PRE ORDER"<<endl;
-    arbol.mostrarPreOrder(arbol.getRaiz());
-    cout<<endl<<"IN ORDER"<<endl;
-    arbol.mostrarInOrder(arbol.getRaiz());
-    cout<<endl<<"POST ORDER"<<endl;
-    arbol.mostrarPostOrder(arbol.getRaiz());
+    // cout<<"PRE ORDER"<<endl;
+    // arbol.mostrarPreOrder(arbol.getRaiz());
+    // cout<<endl<<"IN ORDER"<<endl;
+    // arbol.mostrarInOrder(arbol.getRaiz());
+    // cout<<endl<<"POST ORDER"<<endl;
+    // arbol.mostrarPostOrder(arbol.getRaiz());
 
     
 }
