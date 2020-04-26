@@ -14,6 +14,10 @@ void mostrarMenu()
     bool continuar = true;
     bool res; 
 
+    int f1 = 0;
+    int f2 =0;
+    int f3 = 0; 
+
     int op;
     string v;
    
@@ -29,7 +33,9 @@ void mostrarMenu()
         cout << "8.Encontrar mayor" << endl;
         cout << "9.Encontrar menor" << endl;
         cout<<  "10. Insertar libro"<<endl;
-        cout << "11 .Salir" << endl;
+        cout<<"11. Nodos Factor"<<endl; 
+        cout << "14 .Salir" << endl;
+
         cout << endl;
         cout << "Ingresa una opcion" << endl;
         cin >> op;
@@ -87,7 +93,14 @@ void mostrarMenu()
             }
             archEntrada.close();
             break;
-        case 11:    
+         case 11:  
+             arbol.nodosFactor(arbol.getRaiz(),f1,f2,f3);  
+             cout<<"Factor 0 "<<f1<<endl;
+             cout<<"Factor 1 "<<f2<<endl;
+             cout<<"Factor -1 "<<f3<<endl; 
+            break;
+ 
+        case 14:    
             break; 
 
         default:

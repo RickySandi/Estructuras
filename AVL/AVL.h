@@ -318,6 +318,28 @@ T mayor(Nodo <T> *nodo){ //derecha
         return mayor(nodo->getSubDer());
     }
 
+
+int nodosFactor(Nodo <T> *nodo, int &f1, int &f2, int &f3){
+	if(nodo != NULL){
+		int factor = (altura(nodo->getSubIzq()) + 1) - (altura(nodo->getSubDer()) + 1); 
+
+		if(factor ==0){
+			f1++;
+		}
+		else if(factor ==1){
+			f2++;
+		}
+		else if  (factor ==-1){
+			f3++;
+		}
+		
+		nodosFactor(nodo->getSubIzq(),f1, f2,f3);
+		nodosFactor(nodo->getSubDer(),f1,f2,f3);
+	}
+}
+
+
+
 Nodo<T>*& getRaiz(){
 		return nodo;
 	}
