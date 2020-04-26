@@ -51,8 +51,8 @@ void recuperarAbajoArriba(int raiz =1){
     }
 } 
 void mostrarInOrder(int raiz =1){
-    
-    if(vec[raiz]->getExisteNodo() != false){ 
+   // cout<<"ENTRA"<<endl;
+    if(vec[raiz]->getExisteNodo()){ 
         mostrarInOrder(raiz*2); //izquierda
         vec[raiz]->mostrar();
         mostrarInOrder(raiz*2 +1); //derecha 
@@ -88,7 +88,7 @@ int contarNodos(int raiz =1){
 }
 int altura(int raiz=1){
     
-    if(raiz != NULL){
+    if(vec[raiz]->getExisteNodo()){
        int alturaIzq= altura(raiz*2);
        int alturaDer = altura(raiz*2 +1);
        
@@ -96,6 +96,38 @@ int altura(int raiz=1){
     } else{
         return 0;
     }
+}
+int eliminar(int raiz=1){
+	int mayor; 
+	if(vec[raiz]->getExisteNodo()){
+		mayor = vec[1]->getElem();
+        vec[1]->setElem(vec[ultimaHoja]->getElem()) ;
+        vec[ultimaHoja]->setExisteNodo(false);
+        ultimaHoja = ultimaHoja - 1;
+       recuperarArribaAbajo();
+        
+    }
+    return mayor;
+
+}
+
+void recuperarArribaAbajo(int raiz =1){
+	int aux;
+    if(vec[raiz*2]->getExisteNodo() && vec[raiz*2+1]->getExisteNodo()){
+        if(vec[raiz*2]->getElem() < vec[raiz*2+1]->getElem() && vec[raiz*2+1]->getElem() >= vec[raiz]->getElem()){
+            aux = vec[raiz]->getElem();
+            vec[raiz]->setElem(vec[raiz*2+1]->getElem());
+            vec[raiz*2+1]->setElem(aux);
+            recuperarArribaAbajo(raiz*2+1);
+
+        }else if(vec[raiz*2]->getElem() > vec[raiz*2+1]->getElem() && vec[raiz*2]->getElem() >= vec[raiz]->getElem()){
+            aux = vec[raiz]->getElem();
+            vec[raiz]->setElem(vec[raiz*2]->getElem());
+            vec[raiz*2]->setElem(aux);
+            recuperarArribaAbajo(raiz*2);
+
+        }
+	}
 }
 
 };

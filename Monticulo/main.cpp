@@ -121,15 +121,24 @@ int main()
   arbol.insertar(85);
   arbol.insertar(55);
   arbol.insertar(70); 
-//   arbol.insertar(60);
-//   arbol.insertar(11);
-//   arbol.insertar(4);
-//   arbol.insertar(50); 
+  arbol.insertar(33);
+  arbol.insertar(54);
+  arbol.insertar(68);
+//arbol.insertar(50); 
 
  // cout<<"Despues de insertar"<<endl;
   arbol.mostrarInOrder();
   cout<<endl; 
   cout<<"Nodos: "<<arbol.contarNodos()<<endl; 
+  cout<<"Altura: "<<arbol.altura()<<endl; 
+  cout<<"-----------------------------------------------"<<endl;
+  arbol.eliminar();
+  arbol.eliminar();
+  arbol.eliminar();
+  arbol.mostrarInOrder();
+  cout<<endl; 
+  cout<<"Nodos: "<<arbol.contarNodos()<<endl; 
+  cout<<"Altura: "<<arbol.altura()<<endl; 
   //cout<<"Despues de mostrar"<<endl;
 
     
