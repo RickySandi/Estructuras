@@ -1,0 +1,5 @@
+tomate        	10
+cebolla       5 
+tomate              2 
+cebolla             50 
+papa                        1
