@@ -130,5 +130,18 @@ void recuperarArribaAbajo(int raiz =1){
 	}
 }
 
+void defensa(int vec1[500], int vec2[500]){
+
+	for(int i =0; i<500; i++){
+		insertar(vec[i]);
+	}
+
+	for(int i =0; i<500; i++){
+		vec2[i] = vec[1]->getElem();
+		eliminar(); 
+	}
+}
+
+
 };
 

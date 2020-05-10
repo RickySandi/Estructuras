@@ -6,10 +6,12 @@ using namespace std;
 
 void mostrarMenu() 
 {
-    Monticulo<int32_t> arbol;
+    Monticulo<int> arbol;
 
     int op;
     int v;
+    int vec[10001];
+	int vec1[10001];
    
     do {
         cout << "-----MENU-----" << endl;
@@ -18,7 +20,8 @@ void mostrarMenu()
         cout << "3.Recorrer IN Order" << endl;
         cout << "4.Contar nodos" << endl;
         cout << "5.Calcular altura" << endl;
-        cout << "6.Salir" << endl;
+        cout << "6.Defensa" << endl;
+        cout << "7.Salir" << endl;
 
         cout << endl;
         cout << "Ingresa una opcion" << endl;
@@ -46,8 +49,11 @@ void mostrarMenu()
         case 5:
             cout<<"Altura: "<<arbol.altura()<<endl; 
             break;
+        case 6:
+            arbol.defensa(vec,vec1); 
+            break;
  
-        case 6:    
+        case 7:    
             break; 
 
         default:
@@ -60,7 +66,32 @@ void mostrarMenu()
 
 int main()
 {
-    mostrarMenu(); 
+  //  mostrarMenu(); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //   Monticulo <int> arbol; 
 
