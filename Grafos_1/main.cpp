@@ -19,7 +19,7 @@ void mostrarMenu()
 		cout << "3. Insertar Arista"<<endl;
 		cout << "4. Eliminar Arista"<<endl;
 		cout << "5. Definir numero de Vertices"<<endl;
-		cout << "6. Mostrar camino"<<endl;
+		cout << "6. Mostrar camino"<<endl;  //Para mostrar el camino, primero se lo debe buscar!!
 		cout << "7. Inicializar Padre y Marca"<<endl;
 		cout<<"  8. Mostrar todo"<<endl; 
 		cout << "0. Salir"<<endl;
