@@ -9,42 +9,42 @@ template<class T>
 class Grafo
 {
 private:
-	vector<Vertice<T>*> vec; 
+	//vector<Vertice<T>*> vec; 
+	Vertice<T>*  vec[300]; 
 	Lista_8<T> cola;
 	fstream archivo;
 public:
-	Grafo(){};
-	~Grafo(){};
+Grafo(){
+     for (int i=0 ; i < TAM ; i++) {
+         vec[i] = new Vertice<T>();
+     }
+}
+
+~Grafo(){
+}
+
 	void inicializar(){
+		cout<<" no entra"<<endl;
 		for (int i = 0; i < TAM; i++){
-		vec[i]->setMarca(false);
+			cout<<"entra"<<endl;
+		vec[i]->setMarca(false); 
+		cout<<"entra"<<endl;
 		vec[i]->setPadre(-1);
 	}
 	}
-	void insertar(T vertice1, T vertice2){
-		//if (vec[vertice1]->getExiste()==false)
+	
+	void insertarArista(T vertice1, T vertice2){
+	//if (vec[vertice1].getExiste()==false)
 	//{
 		vec[vertice1]->setNombre(vertice1);
 		vec[vertice1]->setExiste(true);
 		vec[vertice1]->insertarFinalLista8(vertice2);
 	//}
-	//if (vec[vertice2]->getExiste() == false)
+	//if (vec[vertice2].getExiste() == false)
 	//{
 		vec[vertice2]->setNombre(vertice2);
 		vec[vertice2]->setExiste(true);
 		vec[vertice2]->insertarFinalLista8(vertice1);
-	//}
-	}
-	
-	void insertarSimple(T vertice1, T vertice2){
-			//if (vec[vertice1]->getExiste()==false)
-	//{
-	vec[vertice1]->setNombre(vertice1);
-	vec[vertice1]->setExiste(true);
-	vec[vertice1].insertarFinalLista8(vertice2);
-	//}
-	//if (vec[vertice2]->getExiste() == false)
-	//{
 	//}
 	}
 	void mostrarTodo(){
@@ -132,5 +132,21 @@ void busquedaAmplitudParaTodosVertices2(T origen)
 			mostrarCamino(origen, i);
 		}
 	}
+}
+int numeroVertices(){
+	int cont = 0; 
+	for (int i = 0; i < TAM; i++){
+		if (vec[i]->getExiste() != false){
+				cont++;
+	}
+ }
+	return cont; 
+}		
+void eliminarArista(T v){
+	for (int i = 0; i < TAM; i++){
+		if (vec[i]->getNombre() == v){
+			vec[i]->eliminarArista(v); 
+	}
+ }
 }
 };

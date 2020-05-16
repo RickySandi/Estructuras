@@ -60,6 +60,10 @@ void insertarFinalLista8(T elemento)
 {
 	lista.insertBack(elemento);
 }
+void eliminarArista(T elemento)
+{
+	lista.eliminarElemento(elemento);
+}
 
 void mostrarLista8()
 {
