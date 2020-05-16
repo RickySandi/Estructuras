@@ -24,11 +24,8 @@ Grafo(){
 }
 
 	void inicializar(){
-		cout<<" no entra"<<endl;
 		for (int i = 0; i < TAM; i++){
-			cout<<"entra"<<endl;
 		vec[i]->setMarca(false); 
-		cout<<"entra"<<endl;
 		vec[i]->setPadre(-1);
 	}
 	}
@@ -149,4 +146,5 @@ void eliminarArista(T v){
 	}
  }
 }
+
 };

@@ -21,7 +21,10 @@ void mostrarMenu()
 		cout << "5. Definir numero de Vertices"<<endl;
 		cout << "6. Mostrar camino"<<endl;
 		cout << "7. Inicializar Padre y Marca"<<endl;
+		cout<<"  8. Mostrar todo"<<endl; 
 		cout << "0. Salir"<<endl;
+		
+		cout<<"Ingresa una opcion"<<endl; 
 		cin >> op;
 		
 		switch (op)
@@ -74,7 +77,11 @@ void mostrarMenu()
 			grafo->inicializar();
 			cout<<"Padre y Marca inicializados"<<endl; 
 			break;
+		case 8:
+			grafo->mostrarTodo(); 
+			break;
 		}
+		
 	} while (op != 0);
 }
 
