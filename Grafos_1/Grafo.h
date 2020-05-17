@@ -31,30 +31,19 @@ Grafo(){
 	}
 	
 	void insertarArista(T vertice1, T vertice2){
-	//if (vec[vertice1].getExiste()==false)
-	//{
+	
 		vec[vertice1]->setNombre(vertice1);
 		vec[vertice1]->setExiste(true);
 		vec[vertice1]->insertarFinalLista8(vertice2);
-	//}
-	//if (vec[vertice2].getExiste() == false)
-	//{
+
 		vec[vertice2]->setNombre(vertice2);
 		vec[vertice2]->setExiste(true);
 		vec[vertice2]->insertarFinalLista8(vertice1);
-	//}
-	}
-	void mostrarTodo(){
-		for (int i = 0; i < TAM; i++){
-			if (vec[i]->getExiste() != false){
-				cout << "Vertice: "<<vec[i]->getNombre() << endl;
-				cout << "Adyacentes:" << endl;
-				vec[i]->mostrarLista8();
-				}
-		}
-	}
 	
-bool busquedaAmplitud(T origen, T destino)
+	}
+
+	
+bool BFS(T origen, T destino)
 {
 	bool encontre=false;
 	vec[origen]->setMarca(true);
@@ -85,7 +74,7 @@ bool busquedaAmplitud(T origen, T destino)
 	return encontre;
 }
 
-bool busquedaProfundidad(T origen, T destino)
+bool DFS(T origen, T destino)
 {
 	bool encontre = false;
 	vec[origen]->setMarca(true);
@@ -99,7 +88,7 @@ bool busquedaProfundidad(T origen, T destino)
 			if (adyacente->getValue() == destino)
 				encontre = true;
 			else
-				encontre=busquedaProfundidad(adyacente->getValue(), destino);
+				encontre=DFS(adyacente->getValue(), destino);
 
 		}
 		i_esimo++;
@@ -119,17 +108,7 @@ void mostrarCamino(int origen, int destino)
 	cout << origen << endl;
 }
 
-void busquedaAmplitudParaTodosVertices2(T origen)
-{
-	for (int i = 0; i < TAM; i++)
-	{
-		if (vec[i]->getExiste() == true)
-		{
-			busquedaAmplitud(origen, i);
-			mostrarCamino(origen, i);
-		}
-	}
-}
+
 int numeroVertices(){
 	int cont = 0; 
 	for (int i = 0; i < TAM; i++){

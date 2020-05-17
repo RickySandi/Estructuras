@@ -21,8 +21,7 @@ void mostrarMenu()
 		cout << "5. Definir numero de Vertices"<<endl;
 		cout << "6. Mostrar camino"<<endl;  //Para mostrar el camino, primero se lo debe buscar!!
 		cout << "7. Inicializar Padre y Marca"<<endl;
-		cout<<"  8. Mostrar todo"<<endl; 
-		cout << "0. Salir"<<endl;
+		cout << "8. Salir"<<endl;
 		
 		cout<<"Ingresa una opcion"<<endl; 
 		cin >> op;
@@ -35,7 +34,7 @@ void mostrarMenu()
 			cout << "Ingrese el destino: "<<endl;
 			cin >> destino;
 			grafo->inicializar();
-			if (grafo->busquedaAmplitud(origen, destino))
+			if (grafo->BFS(origen, destino))
 				cout << "Camino Encontrado" << endl;
 			else
 				cout << "Camino no existe" << endl;
@@ -46,7 +45,7 @@ void mostrarMenu()
 			cout << "Ingrese el destino: "<<endl;
 			cin >> destino;
 			grafo->inicializar();
-			if (grafo->busquedaProfundidad(origen, destino))
+			if (grafo->DFS(origen, destino))
 				cout << "Camino encontrado"<<endl;
 			else
 				cout << "Camino no encontrado"<<endl;
@@ -77,12 +76,9 @@ void mostrarMenu()
 			grafo->inicializar();
 			cout<<"Padre y Marca inicializados"<<endl; 
 			break;
-		case 8:
-			grafo->mostrarTodo(); 
-			break;
 		}
 		
-	} while (op != 0);
+	} while (op != 8);
 }
 
 int main(){
