@@ -8,7 +8,10 @@ void mostrarMenu()
 {
    Grafo<int>* grafo = new Grafo<int>();
    int origen, destino;
-   int arista; 
+   int arista;
+   fstream archEntrada; 
+    
+  
 
    int op;
 	do
@@ -21,7 +24,9 @@ void mostrarMenu()
 		cout << "5. Definir numero de Vertices"<<endl;
 		cout << "6. Mostrar camino"<<endl;  //Para mostrar el camino, primero se lo debe buscar!!
 		cout << "7. Inicializar Padre y Marca"<<endl;
-		cout << "8. Salir"<<endl;
+		cout << "8. Mostrar Grafo"<<endl;
+		cout << "9. Insertar archivo"<<endl;
+		cout << "10.Salir"<<endl;
 		
 		cout<<"Ingresa una opcion"<<endl; 
 		cin >> op;
@@ -76,9 +81,19 @@ void mostrarMenu()
 			grafo->inicializar();
 			cout<<"Padre y Marca inicializados"<<endl; 
 			break;
+		case 8:
+			grafo->mostrarGrafo(); 
+			break; 
+		case 9:
+             archEntrada.open("grafo.txt");
+            while (!archEntrada.eof() && archEntrada >> origen >> destino)
+            {  //grafo->inicializarVector(vecRepeticiones); 
+               grafo->insertarArista(origen, destino);
+            }
+            archEntrada.close();
 		}
 		
-	} while (op != 8);
+	} while (op != 10);
 }
 
 int main(){
@@ -86,4 +101,4 @@ int main(){
     mostrarMenu();
 
 
-}   
+}

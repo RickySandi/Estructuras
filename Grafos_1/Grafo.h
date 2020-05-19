@@ -29,8 +29,18 @@ Grafo(){
 		vec[i]->setPadre(-1);
 	}
 	}
+	// int inicializarVector(vector<int>vecRepeticiones){
+	// 	for(int i=0;i<300;i++){
+	// 		vecRepeticiones[i]=0; 
+	// 	}
+	// }
+	// int contarEntrada(vector<int>vecRepeticiones){
+		
+	// 	sort(vecRepeticiones.begin(), vecRepeticiones.end());
+	// 	return vecRepeticiones[0];
+	// }
 	
-	void insertarArista(T vertice1, T vertice2){
+	void insertarArista(T vertice1, T vertice2){ //vector<int>vecRepeticiones
 	
 		vec[vertice1]->setNombre(vertice1);
 		vec[vertice1]->setExiste(true);
@@ -39,6 +49,9 @@ Grafo(){
 		vec[vertice2]->setNombre(vertice2);
 		vec[vertice2]->setExiste(true);
 		vec[vertice2]->insertarFinalLista8(vertice1);
+
+		//contando
+		//vecRepeticiones[vertice2] += 1; 	
 	
 	}
 
@@ -122,8 +135,21 @@ void eliminarArista(T v){
 	for (int i = 0; i < TAM; i++){
 		if (vec[i]->getNombre() == v){
 			vec[i]->eliminarArista(v); 
-	}
+	} 
  }
+}
+//Defensa Mostrar y nodo que mas veces es destino 
+void mostrarGrafo()
+{
+	for (int i = 0; i < TAM; i++)
+	{
+		if (vec[i]->getExiste() != false)
+		{
+			cout << "Vertice: "<<vec[i]->getNombre() << endl;
+			cout << "Adyacentes:" << endl;
+			vec[i]->mostrarLista8();
+		}
+	}
 }
 
 };
