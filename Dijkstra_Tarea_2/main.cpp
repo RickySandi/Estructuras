@@ -2,6 +2,12 @@
 #include <iostream>
 #include "Grafo.h"
 #include"Vertice.h"
+#include <map>
+#include <vector>
+#include <queue>
+#include <list>
+#include <cstring>
+
 using namespace std;
 
 void mostrarMenu() 
@@ -103,7 +109,24 @@ void mostrarMenu()
 
 int main(){
 
-    mostrarMenu();
+    //mostrarMenu();
+    map <string,vector < pair <string,int> > > grafo;
+	Grafo<int>* grafo2 = new Grafo<int>(); 
+    map <string,int> distancias;
+    int conex;
+    string ori;
+
+    cout<<"Introduce el numero de aristas ";
+    cin>>conex;
+    grafo2->llenarGrafo(grafo,distancias,conex);
+
+    cout<<"Introduce el nodo ORIGEN ";
+    cin>>ori;
+    grafo2->Dikjstra(grafo,distancias,ori);
+
+    cout<<"el proceso devuelve "<<endl;
+    grafo2->MostrarGrafo(grafo, distancias);
+
 
 
 }
