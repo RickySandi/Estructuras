@@ -34,6 +34,20 @@ Grafo(){
 		vec[i]->setDistancia(999999);
 	}
 	}
+    void insertarArista(T vertice1, T vertice2){ //vector<int>vecRepeticiones
+
+        int posVertice1 = vertice1[0]- 65;
+        int posVertice2 = vertice2[0]- 65;
+	
+		vec[posVertice1]->setNombre(vertice1);
+		vec[posVertice1]->setExiste(true);
+		vec[posVertice1]->insertarFinalLista8(vertice2);
+
+		vec[posVertice2]->setNombre(vertice2);
+		vec[posVertice2]->setExiste(true);
+		vec[posVertice2]->insertarFinalLista8(vertice1);
+    }
+
 // Algoritmo para introducir datos en el GRAFO y distancias
 void llenarGrafo(map<string,vector<pair<string,int> > > &grafo, map<string,int> &dis,int conex)
 {
@@ -74,36 +88,48 @@ void MostrarGrafo(map<string,vector<pair<string,int> > > grafo,map<string,int> d
 }
 
 
-// Dikjstra Entrada: GRAFO y Salida: distancias
-void Dikjstra(map<string,vector<pair<string,int> > > grafo,map<string,int> &distancias, string ori)
+// Dijkstra Entrada: GRAFO y Salida: distancias
+// void Dikjstra(map<string,vector<pair<string,int> > > grafo,map<string,int> &distancias, string ori)
+// {
+//     queue <string> cola;
+//     cola.push(ori);
+//     distancias[ori]=0;
+//     while(!cola.empty())
+//     {   string origen=cola.front();
+//         for(int c=0;c<grafo[origen].size();c++)
+//         {
+//             string destino=grafo[origen][c].first;
+//             if(distancias[origen] + grafo[origen][c].second<distancias[destino])
+//             {
+//                 distancias[destino]=distancias[origen] + grafo[origen][c].second;
+//                 cola.push(destino);
+//             }
+//         }
+//         cola.pop();
+//     }
+// }
+
+void mostrarCamino(string origen, string destino)    
 {
-    queue <string> cola;
-    cola.push(ori);
-    distancias[ori]=0;
-    while(!cola.empty())
-    {   string origen=cola.front();
-        for(int c=0;c<grafo[origen].size();c++)
-        {
-            string destino=grafo[origen][c].first;
-            if(distancias[origen] + grafo[origen][c].second<distancias[destino])
-            {
-                distancias[destino]=distancias[origen] + grafo[origen][c].second;
-                cola.push(destino);
-            }
-        }
-        cola.pop();
-    }
-}
-void mostrarCamino(char origen, char destino)    
-{
-	char aux = destino;
-	int pos =aux-65; 
-	while (aux != origen)
-	{
-		cout << aux << " <- ";
-		aux = vec[pos]->getPadre();
+    int posOrigen = origen[0] - 65; 
+    int posDestino = destino[0] - 65; 
+
+    cout<<"posOrigen "<<posOrigen<<endl; 
+    cout<<" posDestino "<<posDestino<<endl;
+
+	int aux = posDestino;
+    int pos; 
+
+	while (aux != posOrigen){
+       cout<<"vec[aux] "<<vec[aux]->getNombre()<<endl; 
+
+		cout << vec[aux]->getNombre()<<"<-"; 
+		aux = vec[aux]->getPadre(); 
+
+        cout<<"aux "<<aux<<endl; 
+        
 	}
-	cout << origen << endl;
+	cout << vec[aux]->getNombre()<< endl;
 }
 		
 void eliminarArista(T v){
@@ -113,6 +139,15 @@ void eliminarArista(T v){
 	} 
  }
 }
+void eliminarArista(T origen, T destino)
+	{
+		//bool resp = false;
+        int posOrigen = origen[0]-65;
+        int posDestino = destino[0]-65;
+		if (vec[posOrigen]->getList().getExiste() == true)
+			    vec[posOrigen]->getList().eliminarElemento(destino);
+		//return resp;
+	}
 
 
 

@@ -110,7 +110,7 @@ string getNombreDep()
 {
 	return nombreDep;
 }
-Lista_8<T> * getList()
+Lista_8<T>  getList()
 {
 	return lista;
 }

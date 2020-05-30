@@ -14,6 +14,7 @@ public:
 	Lista_8() {
 		first = NULL;
 		last = NULL;
+		existe = false; 
 	}
 	Terna<T>* getFirst()
 	{
@@ -27,6 +28,7 @@ public:
 	void insertFirst(T v)
 	{
 		Terna <T>* aux; 
+		existe = true; 
 		if (first == NULL)
 		{
 			first = new Terna <T>();
@@ -47,6 +49,7 @@ public:
 	void insertBack(T v)
 	{
 		Terna <T>* aux;
+		existe = true; 
 		if (first == NULL)
 		{
 			first = new Terna <T>();
@@ -173,6 +176,7 @@ public:
 		
 		Terna <T> * t = new Terna <T>();
 		t->setValue(v); 
+		existe = true; 
 
 
 		if(t->getValue() <= first->getValue()){
