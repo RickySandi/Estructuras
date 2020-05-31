@@ -1,13 +1,6 @@
-//
-//  Grafo.h
-//  DijkstraKruskal
-//
-//  Created by MacBook Air on 11/18/18.
-//  Copyright © 2018 MacBook Air. All rights reserved.
-//
-
 #ifndef Grafo_h
 #define Grafo_h
+
 #include"Vertice.h"
 #include <queue>
 #include <functional>

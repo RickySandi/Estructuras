@@ -1,13 +1,6 @@
-//
-//  Nodo.h
-//  DijkstraKruskal
-//
-//  Created by MacBook Air on 11/18/18.
-//  Copyright © 2018 MacBook Air. All rights reserved.
-//
-
 #ifndef Nodo_h
 #define Nodo_h
+
 #include <iostream>
 using namespace std;
 template< class T>

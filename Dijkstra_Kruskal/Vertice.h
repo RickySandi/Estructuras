@@ -1,16 +1,8 @@
-//
-//  Vertice.h
-//  DijkstraKruskal
-//
-//  Created by MacBook Air on 11/18/18.
-//  Copyright © 2018 MacBook Air. All rights reserved.
-//
-
 #ifndef Vertice_h
 #define Vertice_h
 
 #pragma once
-#include"Lista8.h"
+#include"Lista_8.h"
 template <class T>
 class Vertice
 {
@@ -19,7 +11,7 @@ private:
     bool marca;
     bool insertado = false;
     int distancia;
-    Lista8<int>* lista;
+    Lista_8<int>* lista;
 public:
     Vertice();
     ~Vertice();
@@ -32,7 +24,7 @@ public:
     void setInsertado(bool ins);
     int getDistancia();
     void setDistancia(int dist);
-    Lista8<int>* getList();
+    Lista_8<int>* getList();
 };
 
 template<class T>
@@ -40,7 +32,7 @@ inline Vertice<T>::Vertice() :lista()
 {
     padre = -1;
     marca = false;
-    lista = new Lista8<int>;
+    lista = new Lista_8<int>;
     distancia = 99999;
 }
 
@@ -106,7 +98,7 @@ inline void Vertice<T>::setDistancia(int dist)
 }
 
 template<class T>
-inline Lista8<int> * Vertice<T>::getList()
+inline Lista_8<int> * Vertice<T>::getList()
 {
     return lista;
 }

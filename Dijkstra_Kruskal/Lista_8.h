@@ -1,16 +1,9 @@
-//
-//  Lista8.h
-//  DijkstraKruskal
-//
-//  Created by MacBook Air on 11/18/18.
-//  Copyright © 2018 MacBook Air. All rights reserved.
-//
+#ifndef Lista_8_h
+#define Lista_8_h
 
-#ifndef Lista8_h
-#define Lista8_h
 #include"Nodo.h"
 template<class T>
-class Lista8
+class Lista_8
 {
 private:
     Nodo<T> *primero;
@@ -18,8 +11,8 @@ private:
     bool elemExistentes;
     int cantElementos;
 public:
-    Lista8();
-    ~Lista8();
+    Lista_8();
+    ~Lista_8();
     void insertarPrincipio(T elem);
     void insertarFinal(T elem, int peso);
     void EliminarPrincipio();
@@ -41,7 +34,7 @@ public:
 };
 
 template<class T>
-Lista8<T>::Lista8()
+Lista_8<T>::Lista_8()
 {
     primero = NULL;
     ultimo = NULL;
@@ -50,13 +43,13 @@ Lista8<T>::Lista8()
 }
 
 template<class T>
-Lista8<T>::~Lista8()
+Lista_8<T>::~Lista_8()
 {
     //FALTA DELETES//
 }
 
 template<class T>
-void Lista8<T>::insertarPrincipio(T elem)
+void Lista_8<T>::insertarPrincipio(T elem)
 {
     
     elemExistentes = true;
@@ -79,7 +72,7 @@ void Lista8<T>::insertarPrincipio(T elem)
 }
 
 template<class T>
-void Lista8<T>::insertarFinal(T elem, int peso)
+void Lista_8<T>::insertarFinal(T elem, int peso)
 {
     bool resp = false;
     elemExistentes = true;
@@ -105,7 +98,7 @@ void Lista8<T>::insertarFinal(T elem, int peso)
     
 }
 template<class T>
-void Lista8<T>::EliminarPrincipio()
+void Lista_8<T>::EliminarPrincipio()
 {
     
     cantElementos--;
@@ -132,7 +125,7 @@ void Lista8<T>::EliminarPrincipio()
 }
 
 template<class T>
-void Lista8<T>::EliminarFinal()
+void Lista_8<T>::EliminarFinal()
 {
     Nodo<T>* aux;
     aux = ultimo->getAnterior();
@@ -143,7 +136,7 @@ void Lista8<T>::EliminarFinal()
 }
 
 template<class T>
-void Lista8<T>::MostrarLista()
+void Lista_8<T>::MostrarLista()
 {
     Nodo<T>* aux;
     aux = primero;
@@ -161,7 +154,7 @@ void Lista8<T>::MostrarLista()
 }
 
 template<class T>
-void Lista8<T>::MostrarListaInvertida()
+void Lista_8<T>::MostrarListaInvertida()
 {
     Nodo<T>* aux;
     aux = ultimo;
@@ -176,7 +169,7 @@ void Lista8<T>::MostrarListaInvertida()
 }
 
 template<class T>
-void Lista8<T>::InvertirLista()
+void Lista_8<T>::InvertirLista()
 {
     Nodo<T>* aux;
     Nodo<T>*aux2;
@@ -197,7 +190,7 @@ void Lista8<T>::InvertirLista()
 
 
 template<class T>
-bool Lista8<T>::elliminarElementoDado(T el)
+bool Lista_8<T>::elliminarElementoDado(T el)
 {
     Nodo<T>* auxi;
     bool resp = false;
@@ -265,7 +258,7 @@ bool Lista8<T>::elliminarElementoDado(T el)
 }
 
 template<class T>
-bool Lista8<T>::buscar(T el)
+bool Lista_8<T>::buscar(T el)
 {
     Nodo<T>* auxi;
     bool resp = false;
@@ -288,25 +281,25 @@ bool Lista8<T>::buscar(T el)
     
 }
 template<class T>
-Nodo<T>* Lista8<T>::getUltimo()
+Nodo<T>* Lista_8<T>::getUltimo()
 {
     return ultimo;
 }
 
 template<class T>
-inline Nodo<T>* Lista8<T>::getPrimero()
+inline Nodo<T>* Lista_8<T>::getPrimero()
 {
     return primero;
 }
 
 template<class T>
-int Lista8<T>::getCantElementos()
+int Lista_8<T>::getCantElementos()
 {
     return cantElementos;
 }
 
 template<class T>
-void Lista8<T>::ordenarLista()
+void Lista_8<T>::ordenarLista()
 {
     Nodo<T>* aux;
     Nodo<T>* aux2;
@@ -323,7 +316,7 @@ void Lista8<T>::ordenarLista()
 }
 
 template<class T>
-void Lista8<T>::MoverAlPrincipio(Nodo<T>*aux)
+void Lista_8<T>::MoverAlPrincipio(Nodo<T>*aux)
 {
     Nodo<T>*aux2;
     insertarPrincipio(aux->getElemento());
@@ -336,7 +329,7 @@ void Lista8<T>::MoverAlPrincipio(Nodo<T>*aux)
 }
 
 template<class T>
-Nodo<T>* Lista8<T>::ElementoIPosicion(int posicion)
+Nodo<T>* Lista_8<T>::ElementoIPosicion(int posicion)
 {
     /*
      Nodo<T>* aux = primero;
@@ -389,9 +382,9 @@ Nodo<T>* Lista8<T>::ElementoIPosicion(int posicion)
 }
 
 template<class T>
-bool Lista8<T>::getElemexistentes()
+bool Lista_8<T>::getElemexistentes()
 {
     return elemExistentes;
 }
 
-#endif /* Lista8_h */
+#endif /* Lista_8_h */
