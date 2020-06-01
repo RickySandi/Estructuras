@@ -11,7 +11,7 @@ private:
     bool marca;
     bool insertado = false;
     int distancia;
-    Lista_8<int>* lista;
+    Lista_8<char>* lista;
 public:
     Vertice();
     ~Vertice();
@@ -24,7 +24,7 @@ public:
     void setInsertado(bool ins);
     int getDistancia();
     void setDistancia(int dist);
-    Lista_8<int>* getList();
+    Lista_8<char>* getList();
 };
 
 template<class T>
@@ -32,7 +32,7 @@ inline Vertice<T>::Vertice() :lista()
 {
     padre = -1;
     marca = false;
-    lista = new Lista_8<int>;
+    lista = new Lista_8<char>;
     distancia = 99999;
 }
 
@@ -98,7 +98,7 @@ inline void Vertice<T>::setDistancia(int dist)
 }
 
 template<class T>
-inline Lista_8<int> * Vertice<T>::getList()
+inline Lista_8<char> * Vertice<T>::getList()
 {
     return lista;
 }

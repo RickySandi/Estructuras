@@ -5,7 +5,7 @@
 #include <queue>
 #include <functional>
 #include <fstream>
-typedef pair<int, pair<int, int>>pi;
+typedef pair<char, pair<char, char>>pi;
 
 class Grafo
 {
@@ -17,20 +17,20 @@ public:
     
     Grafo();
     ~Grafo();
-    void insertarArista(int origen, int destino, int peso);
-    bool busquedaAmplitud(int origen, int destino);
-    bool busquedaProfundidad(int origen, int destino);
+    void insertarArista(char origen, char destino, char peso);
+    bool busquedaAmplitud(char origen, char destino);
+    bool busquedaProfundidad(char origen, char destino);
     void mostrarAdyacentes();
-    bool eliminarArista(int origen, int destino);
+    bool eliminarArista(char origen, char destino);
     void inicializarBusqueda();
-    void mostrarCamino(int origen, int destino);
-    void caminoMinimoATodos(int origen);
+    void mostrarCamino(char origen, char destino);
+    void caminoMinimoATodos(char origen);
     int Kruskal(Grafo &AE);
     void leerArchivo();
     void mostrarKruskal();
-    void Dijkstra(int origen);
-    void mostrarDijkstra(int ori, int dest);
-    int BuscarCiclo(int x);
+    void Dijkstra(char origen);
+    void mostrarDijkstra(char ori, char dest);
+    int BuscarCiclo(char x);
 };
 
 Grafo::Grafo()
@@ -41,20 +41,20 @@ Grafo::~Grafo()
 {
 }
 
-void Grafo::insertarArista(int origen, int destino, int peso)
-{
-    vec[origen].getList()->insertarFinal(destino, peso);
-    vec[destino].getList()->insertarFinal(origen, peso);
+void Grafo::insertarArista(char origen, char destino, char peso)
+{   
+    vec[origen-65].getList()->insertarFinal(destino, peso);
+    vec[destino-65].getList()->insertarFinal(origen, peso);
     //vec[origen].setInsertado(true);
 }
 
-bool Grafo::busquedaAmplitud(int origen, int destino)
+bool Grafo::busquedaAmplitud(char origen, char destino)
 {
-    int vert;
+    char vert;
     queue<int> cola;
-    Nodo<int>* adyacente;
+    Nodo<char>* adyacente;
     bool encontre = false;
-    vec[origen].setMarca(true);
+    vec[origen-65].setMarca(true);
     cola.push(origen);
     
     while (!cola.empty() && encontre == false)
@@ -62,47 +62,47 @@ bool Grafo::busquedaAmplitud(int origen, int destino)
         iesimo = 1;
         vert = cola.front();
         cola.pop();
-        adyacente = vec[vert].getList()->ElementoIPosicion(iesimo);
+        adyacente = vec[vert-65].getList()->ElementoIPosicion(iesimo);
         while (adyacente != NULL && encontre == false)
         {
-            if (vec[adyacente->getElemento()].getMarca() == false)
+            if (vec[adyacente->getElemento()-65].getMarca() == false)
             {
-                vec[adyacente->getElemento()].setPadre(vert);
+                vec[adyacente->getElemento()-65].setPadre(vert);
                 if (adyacente->getElemento() == destino)
                     encontre = true;
                 else
                 {
-                    vec[adyacente->getElemento()].setMarca(true);
+                    vec[adyacente->getElemento()-65].setMarca(true);
                     cola.push(adyacente->getElemento());
                 }
             }
             iesimo = iesimo + 1;
-            adyacente = vec[vert].getList()->ElementoIPosicion(iesimo);
+            adyacente = vec[vert-65].getList()->ElementoIPosicion(iesimo);
         }
     }
     
     return encontre;
 }
 
-bool Grafo::busquedaProfundidad(int origen, int destino)
+bool Grafo::busquedaProfundidad(char origen, char destino)
 {
     queue<int> cola;
-    Nodo<int>* adyacente;
+    Nodo<char>* adyacente;
     bool encontreCamino = false;
-    vec[origen].setMarca(true);
+    vec[origen-65].setMarca(true);
     iesimo = 1;
-    adyacente = vec[origen].getList()->ElementoIPosicion(iesimo);
+    adyacente = vec[origen-65].getList()->ElementoIPosicion(iesimo);
     while (adyacente != NULL) {
-        if (encontreCamino == false && vec[adyacente->getElemento()].getMarca() == false)
+        if (encontreCamino == false && vec[adyacente->getElemento()-65].getMarca() == false)
         {
-            vec[adyacente->getElemento()].setPadre(origen);
+            vec[adyacente->getElemento()-65].setPadre(origen);
             if (adyacente->getElemento() == destino)
                 encontreCamino = true;
             else
                 encontreCamino = busquedaProfundidad(adyacente->getElemento(), destino);
         }
         iesimo = iesimo + 1;
-        adyacente = vec[origen].getList()->ElementoIPosicion(iesimo);
+        adyacente = vec[origen-65].getList()->ElementoIPosicion(iesimo);
     }
     return encontreCamino;
 }
@@ -124,11 +124,11 @@ void Grafo::mostrarAdyacentes()
     }
 }
 
-bool Grafo::eliminarArista(int origen, int destino)
+bool Grafo::eliminarArista(char origen, char destino)
 {
     bool resp = false;
-    if (vec[origen].getList()->getElemexistentes() == true)
-        resp = vec[origen].getList()->elliminarElementoDado(destino);
+    if (vec[origen-65].getList()->getElemexistentes() == true)
+        resp = vec[origen-65].getList()->elliminarElementoDado(destino);
     return resp;
 }
 
@@ -142,12 +142,12 @@ void Grafo::inicializarBusqueda()
     }
 }
 
-void Grafo::mostrarCamino(int origen, int destino)
+void Grafo::mostrarCamino(char origen, char destino)
 {
     bool resp;
     inicializarBusqueda();
     resp = busquedaProfundidad(origen, destino);
-    int aux = destino;
+    int aux = destino-65;
     if (resp == true)
     {
         
@@ -162,7 +162,7 @@ void Grafo::mostrarCamino(int origen, int destino)
         cout << "camino no encontrado!" << endl;
 }
 
-void Grafo::caminoMinimoATodos(int origen)
+void Grafo::caminoMinimoATodos(char origen)
 {
     
     bool resp;
@@ -174,7 +174,7 @@ void Grafo::caminoMinimoATodos(int origen)
         if (resp == true)
         {
             
-            while (aux != origen)
+            while (aux != (origen-65))
             {
                 cout << aux << " <- ";
                 aux = vec[aux].getPadre();
@@ -188,57 +188,47 @@ void Grafo::caminoMinimoATodos(int origen)
 
 int Grafo::Kruskal(Grafo &AE)
 {
-    int vertice, distancia;
-    priority_queue<pi, vector<pi>, greater<pi>>colaP;
-    pi trio;
-    Nodo<int>* adyacente;
-    int cant,cantnodos=0;
-    for (int i = 0; i < 100; i++)
-    {
-        if (vec[i].getList()->getElemexistentes() == true)
-        {
-            cant = 1;
-            vec[i].setPadre(i);
-            adyacente = vec[i].getList()->ElementoIPosicion(cant);
-            while (adyacente != NULL)
-            {
-                trio.first = adyacente->getPeso();
-                trio.second.first = i;
-                trio.second.second = adyacente->getElemento();
-                colaP.push(trio);
-                cant++;
-                cantnodos++;
-                adyacente = vec[i].getList()->ElementoIPosicion(cant);
-            }
-        }
-    }
-    
-    int vo, vd,total=0;
-    cant = 0;
-    while (cant<cantnodos)
-    {
-        trio = colaP.top();
-        colaP.pop();
-        vo = BuscarCiclo(trio.second.first);
-        vd = BuscarCiclo(trio.second.second);
-        if (vo != vd)
-        {
-            AE.insertarArista(vo,vd, trio.first);
-            total = total + trio.first;
-            vec[vo].setPadre(vec[vd].getPadre());
-        }
-        cant++;
-    }
-    return total;
+    Grafo<T>* AE= new Grafo<T>;
+	priority_queue<pi, vector<pi>, greater<pi>>colaP;
+	int cont = 0,cantNodos=0,verticeOrigen,verticeDestino;
+	Nodo<int>trio;
+	for (int i = 0; i < 10; i++)
+	{
+		if (vec[i].getInsertado() == true)
+		{
+			Nodo<T>*adyacente=vec[i].sacarSiguienteAdyacente(1);
+			while (adyacente != NULL)
+			{
+				colaP.insertarArista(adyacente->getPeso(), i, adyacente->getElem());
+				cantNodos++;
+				adyacente = adyacente->getSiguiente();
+			}
+		}
+	}
+	while (cont < cantNodos)
+	{
+		trio = colaP.sacarRaiz();
+		verticeOrigen = BuscarCiclo(trio.getVerticeOrigen());
+		verticeDestino = BuscarCiclo(trio.getVerticeDestino());
+		if (verticeOrigen != verticeDestino)
+		{
+			AE->insertar(trio.getVerticeOrigen(), trio.getVerticeDestino(), trio.getElemento());
+			total = total + trio.getElemento();
+			vec[verticeOrigen].setPadre(vec[verticeDestino].getPadre());
+		}
+		cont++;
+	}
+	return AE;
 }
-void Grafo::Dijkstra(int origen)
+void Grafo::Dijkstra(char origen)
 {
-    int vertice, distancia;
-    Nodo<int> *Ady;
+    char vertice;
+    int distancia;
+    Nodo<char> *Ady;
     priority_queue<pi, vector<pi>, greater<pi>>colaP;
-    vec[origen].setDistancia(0);
+    vec[origen-65].setDistancia(0);
     pi duo;
-    duo.first = vec[origen].getDistancia();
+    duo.first = vec[origen-65].getDistancia();
     duo.second.first = origen;
     colaP.push(duo);
     while (!colaP.empty())
@@ -246,19 +236,19 @@ void Grafo::Dijkstra(int origen)
         duo = colaP.top();
         colaP.pop();
         vertice = duo.second.first;
-        if (vec[vertice].getMarca() == false)
+        if (vec[vertice-65].getMarca() == false)
         {
-            vec[vertice].setMarca(true);
-            Ady = vec[vertice].getList()->getPrimero();
+            vec[vertice-65].setMarca(true);
+            Ady = vec[vertice-65].getList()->getPrimero();
             while (Ady != NULL)
             {
-                if (vec[Ady->getElemento()].getMarca() == false && Ady->getPeso()>0)
+                if (vec[Ady->getElemento()-65].getMarca() == false && Ady->getPeso()>0)
                 {
-                    if (vec    [vertice].getDistancia() + Ady->getPeso()<vec[Ady->getElemento()].getDistancia())
+                    if (vec[vertice-65].getDistancia() + Ady->getPeso()<vec[Ady->getElemento()-65].getDistancia())
                     {
-                        vec[Ady->getElemento()].setDistancia(vec[vertice].getDistancia() + Ady->getPeso());
-                        vec[Ady->getElemento()].setPadre(vertice);
-                        duo.first = vec[Ady->getElemento()].getDistancia();
+                        vec[Ady->getElemento()-65].setDistancia(vec[vertice-65].getDistancia() + Ady->getPeso());
+                        vec[Ady->getElemento()-65].setPadre(vertice);
+                        duo.first = vec[Ady->getElemento()-65].getDistancia();
                         duo.second.first = Ady->getElemento();
                         duo.second.second = 0;
                         colaP.push(duo);
@@ -270,15 +260,15 @@ void Grafo::Dijkstra(int origen)
         
     }
 }
-void Grafo::mostrarDijkstra(int ori, int dest)
+void Grafo::mostrarDijkstra(char ori, char dest)
 {
-    vector<int> cam;
-    if (vec[dest].getMarca() != false)
+    vector<char> cam;
+    if (vec[dest-65].getMarca() != false)
     {
         while (dest != ori)
         {
             cam.push_back(dest);
-            dest = vec[dest].getPadre();
+            dest = vec[dest-65].getPadre();
         }
         cout << ori;
         
@@ -292,22 +282,6 @@ void Grafo::mostrarDijkstra(int ori, int dest)
     
 }
 
-
-void Grafo::leerArchivo()
-{
-    fstream archEnter;
-    int ori, fin, dist;
-    archEnter.open("numeros.txt");
-    
-    while (!archEnter.eof() && archEnter >> ori >> fin >> dist)
-    {
-        insertarArista(ori, fin, dist);
-    }
-    
-    archEnter.close();
-    cout << "exito..." << endl;
-    
-}
 void Grafo::mostrarKruskal()
 {
     for (int i = 1; i < 100; i++)
@@ -323,11 +297,11 @@ void Grafo::mostrarKruskal()
     
 }
 
-int Grafo::BuscarCiclo(int x)
+int Grafo::BuscarCiclo(char x)
 {
-    while (x != vec[x].getPadre())
+    while (x != vec[x-65].getPadre())
     {
-        x = vec[x].getPadre();
+        x = vec[x-65].getPadre();
     }
     return x;
 }

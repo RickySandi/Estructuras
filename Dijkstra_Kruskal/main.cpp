@@ -5,7 +5,7 @@ using namespace std;
 
 void Menu()
 {
-    int origen, destino; //int 
+    char origen, destino; //int 
     int peso,total;
     bool resp;
     Grafo grafo,AE;
@@ -120,7 +120,7 @@ void Menu()
             grafo.mostrarDijkstra(origen, i);
         }
     case 10:
-        archEntrada.open("grafo_2.txt");
+        archEntrada.open("grafo_3.txt");
             while (!archEntrada.eof() && archEntrada >> origen >> destino >> peso)
             { 
                 grafo.insertarArista(origen, destino, peso);
