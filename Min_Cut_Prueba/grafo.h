@@ -33,9 +33,6 @@ int busquedaAmplitud(int grafo[TAM][TAM], int origen, int destino, int parent[])
     return (visited[destino] == true);
 }
  
-/*
- *  A DFS based function to find all reachable vertices from s.
- */
 void busquedaProfundidad(int grafo[TAM][TAM], int origen, bool visited[]){
     visited[origen] = true;
     for (int i = 0; i < TAM; i++)
