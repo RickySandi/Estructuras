@@ -4,30 +4,25 @@
 #include <cstring>
 #include <queue>
 #include "fstream"
-#define V 6
+#define TAM 6  // TAM 26 para porbar con letras
 using namespace std;
- 
-/*
- * Returns true if there is a path from source 's' to sink 't' in
- * residual graph. Also fills parent[] to store the path
- */
+
 fstream archEntrada;
 
-int bfs(int rGraph[V][V], int s, int t, int parent[])
-{
-    bool visited[V];
+int busquedaAmplitud(int grafo[TAM][TAM], int origen, int destino, int parent[]){
+    bool visited[TAM];
     memset(visited, 0, sizeof(visited));
     queue <int> q;
-    q.push(s);
-    visited[s] = true;
-    parent[s] = -1;
+    q.push(origen);
+    visited[origen] = true;
+    parent[origen] = -1;
     while (!q.empty())
     {
         int u = q.front();
         q.pop();
-        for (int v = 0; v < V; v++)
+        for (int v = 0; v < TAM; v++)
         {
-            if (visited[v] == false && rGraph[u][v] > 0)
+            if (visited[v] == false && grafo[u][v] > 0)
             {
                 q.push(v);
                 parent[v] = u;
@@ -35,61 +30,66 @@ int bfs(int rGraph[V][V], int s, int t, int parent[])
             }
         }
     }
-    return (visited[t] == true);
+    return (visited[destino] == true);
 }
  
 /*
  *  A DFS based function to find all reachable vertices from s.
  */
-void dfs(int rGraph[V][V], int s, bool visited[])
-{
-    visited[s] = true;
-    for (int i = 0; i < V; i++)
+void busquedaProfundidad(int grafo[TAM][TAM], int origen, bool visited[]){
+    visited[origen] = true;
+    for (int i = 0; i < TAM; i++)
     {
-        if (rGraph[s][i] && !visited[i])
-           dfs(rGraph, i, visited);
+        if (grafo[origen][i] && !visited[i])
+           busquedaProfundidad(grafo, i, visited);
     }
 }
+
+char intToChar(int num){
+    char charsArray[] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+    
+    return charsArray[num];
+    
+}
  
-/*
- * Prints the minimum s-t cut
- */
-void minCut(int graph[V][V], int origen, int destino)   // s t 
-{
+
+void minCut(int grafo[TAM][TAM], int origen, int destino) {
     int u, v;
-    int rGraph[V][V];
-    for (u = 0; u < V; u++)
+    int grafoAux[TAM][TAM];
+    for (u = 0; u < TAM; u++)
     {
-        for (v = 0; v < V; v++)
-             rGraph[u][v] = graph[u][v];
+        for (v = 0; v < TAM; v++)
+             grafoAux[u][v] = grafo[u][v];
     }
-    int parent[V];
-    while (bfs(rGraph, origen, destino, parent))
+    int parent[TAM];
+    while (busquedaAmplitud(grafoAux, origen, destino, parent))
     {
         int path_flow = 65536; //256 al cuadrado
         for (v = destino; v != origen; v = parent[v])
         {
             u = parent[v];
-            path_flow = min(path_flow, rGraph[u][v]);
+            path_flow = min(path_flow, grafoAux[u][v]);
         }
         for (v = destino; v != origen; v = parent[v])
         {
             u = parent[v];
-            rGraph[u][v] -= path_flow;
-            rGraph[v][u] += path_flow;
+            grafoAux[u][v] -= path_flow;
+            grafoAux[v][u] += path_flow;
         }
     }
-    bool visited[V];
+    bool visited[TAM];
     int cortes = 0; 
     memset(visited, 0, sizeof(visited));
-    dfs(rGraph, origen, visited);
-    for (int i = 0; i < V; i++)
+    busquedaProfundidad(grafoAux, origen, visited);
+
+    for (int i = 0; i < TAM; i++)
     {
-        for (int j = 0; j < V; j++)
+        for (int j = 0; j < TAM; j++)
         {
            
-            if (visited[i] && !visited[j] && graph[i][j]){
-                cout << i << " - " << j << endl;
+            if (visited[i] && !visited[j] && grafo[i][j]){
+                cout << i << " - " << j << endl;                            //Comentar para porbar con letras
+                //cout << intToChar(i) << " - " << intToChar(j) << endl;    //Para probar con letras
                 cortes++; 
             }
                 
@@ -97,22 +97,21 @@ void minCut(int graph[V][V], int origen, int destino)   // s t
     }
     cout<<"Numero de cortes: "<<cortes<<endl; 
 }
-void insertarGrafo(int graph[V][V], int i, int j, int peso){
+void insertarPeso(int grafo[TAM][TAM], int i, int j, int peso){
     
-    graph[i][j] =  peso;
+    grafo[i][j] =  peso;
 }
 
-void leerArchivo(int graph[V][V]){
+void leerArchivo(int grafo[TAM][TAM]){
 
    int peso;   
    int i =0, j=0; 
-   archEntrada.open("minCut.txt");
+   archEntrada.open("minCut.txt"); //leer archivo min.txt para probar con letras 
             while (!archEntrada.eof() && archEntrada >> peso)
             {
-                insertarGrafo(graph, i,j,peso);
+                insertarPeso(grafo,i,j,peso);
                 j++;
-                if(j>= V){
-                    cout << endl;
+                if(j>= TAM){
                     i++;
                     j=0; 
                 }
@@ -121,27 +120,12 @@ void leerArchivo(int graph[V][V]){
     archEntrada.close();
 }
 
-
-
-
-
-void imprimirArchivo(int graph[V][V]){
-         for(int i=0; i<V;i++){
-            for(int j=0; j<V;j++){
-                cout<<graph[i][j] << " ";
+void imprimirArchivo(int grafo[TAM][TAM]){
+         for(int i=0; i<TAM;i++){
+            for(int j=0; j<TAM;j++){
+                cout<<grafo[i][j] << " ";
             }
             cout<<endl; 
         }
 
 }
-
-
-
-
-
-
-
-
-/*
- * Main Contains Menu
- */ 
