@@ -4,7 +4,7 @@
 #include <cstring>
 #include <queue>
 #include "fstream"
-#define TAM 6  // TAM 26 para porbar con letras
+#define TAM 10  // TAM 10 para porbar con min.txt   TAM 6 para porbar con minCut.txt 
 using namespace std;
 
 fstream archEntrada;
@@ -46,7 +46,8 @@ void busquedaProfundidad(int grafo[TAM][TAM], int origen, bool visited[]){
 }
 
 char intToChar(int num){
-    char charsArray[] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+    //char charsArray[] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+    char charsArray[] = {'A','B','C','D','E','F','G','H','X','Y'};
     
     return charsArray[num];
     
@@ -88,8 +89,8 @@ void minCut(int grafo[TAM][TAM], int origen, int destino) {
         {
            
             if (visited[i] && !visited[j] && grafo[i][j]){
-                cout << i << " - " << j << endl;                            //Comentar para porbar con letras
-                //cout << intToChar(i) << " - " << intToChar(j) << endl;    //Para probar con letras
+                //cout << i << " - " << j << endl;                         //Para probar con minCut.txt
+                cout << intToChar(i) << " - " << intToChar(j) << endl;    //Para probar ccon min.txt
                 cortes++; 
             }
                 
@@ -106,7 +107,7 @@ void leerArchivo(int grafo[TAM][TAM]){
 
    int peso;   
    int i =0, j=0; 
-   archEntrada.open("minCut.txt"); //leer archivo min.txt para probar con letras 
+   archEntrada.open("min.txt"); //leer archivo min.txt para probar con letras   minCut.txt para probar con numeros 
             while (!archEntrada.eof() && archEntrada >> peso)
             {
                 insertarPeso(grafo,i,j,peso);
